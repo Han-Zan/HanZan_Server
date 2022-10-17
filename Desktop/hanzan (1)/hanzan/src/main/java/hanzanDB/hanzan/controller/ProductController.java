@@ -33,12 +33,6 @@ public class ProductController {
         List<Product> products = productService.getProductByCategory(number);
         return ResponseEntity.status(HttpStatus.OK).body(products);
     }
-    @GetMapping(value = "/selections")
-    ResponseEntity<List<Product>> getProductByCategoryAndPrice(@RequestParam(name = "category") Integer category, @RequestParam(name = "price") Integer price) {
-        List<Product> products = productService.getProductByCategoryandPrice(category, price);
-        return ResponseEntity.status(HttpStatus.OK).body(products);
-    }
-
     @PostMapping()
     public ResponseEntity<ProductResponseDto> postProduct(@RequestBody ProductDto productdto) {
         ProductResponseDto productResponseDto = productService.saveProduct(productdto);

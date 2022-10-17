@@ -16,6 +16,11 @@ public class UserDAOImpl implements UserDAO {
         this.userRepository = userRepository;
     }
     @Override
+    public Optional<User> getUserByToken(String token) {
+        Optional<User> user = userRepository.findByToken(token);
+        return user;
+    }
+    @Override
     public User insertUser(User user) {
         User savedUser = userRepository.save(user);
         return savedUser;

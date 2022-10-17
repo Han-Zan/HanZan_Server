@@ -9,6 +9,7 @@ import hanzanDB.hanzan.service.PreferredService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -24,13 +25,14 @@ public class PreferredServiceImpl implements PreferredService {
         Preferred preferred = new Preferred();
         preferred.setUseridx(preferredDto.getUseridx());
         preferred.setDrinks(preferredDto.getDrinkidx());
+        preferred.setCreatedAt(LocalDateTime.now());
         Preferred newpref = preferredDAO.insertPreferred(preferred);
 
         PreferredResponseDto preferredResponseDto = new PreferredResponseDto();
         preferredResponseDto.setId(newpref.getId());
         preferredResponseDto.setUserId(newpref.getUseridx());
         preferredResponseDto.setDrinkId(newpref.getDrinks());
-
+        preferredResponseDto.setCreatedAt(newpref.getCreatedAt());
         return preferredResponseDto;
     }
 

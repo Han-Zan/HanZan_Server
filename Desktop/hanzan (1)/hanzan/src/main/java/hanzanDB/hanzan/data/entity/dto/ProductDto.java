@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.AllArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,14 +16,19 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class ProductDto {
     private String name;
-    private int price;
-    private int stock;
     private int category;
     private float rating;
     private String aroma;
     private String taste;
     private String finish;
     private String tag;
+    private Integer sweet;
+    private Integer bitter;
+    private Integer salty;
+    private Integer sparkle;
+    private Integer sour;
+    private String img;
+
 
 
 }

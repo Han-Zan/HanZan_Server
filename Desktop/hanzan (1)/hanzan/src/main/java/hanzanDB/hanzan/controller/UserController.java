@@ -2,6 +2,7 @@ package hanzanDB.hanzan.controller;
 
 import hanzanDB.hanzan.data.entity.dto.Request.ChangeUserNickNameDto;
 import hanzanDB.hanzan.data.entity.dto.Request.ChangeUserSBTIDto;
+import hanzanDB.hanzan.data.entity.dto.Response.SelectionUserResponseDto;
 import hanzanDB.hanzan.data.entity.dto.UserDto;
 import hanzanDB.hanzan.data.entity.dto.Response.UserResponseDto;
 import hanzanDB.hanzan.service.UserService;
@@ -21,11 +22,11 @@ public class UserController {
         this.userService = userService;
     }
     @GetMapping
-    public ResponseEntity<UserResponseDto> getUser(long Id) {
-        UserResponseDto userResponseDto = userService.getUser(Id);
+    public ResponseEntity<SelectionUserResponseDto> getUser(long Id) {
+        SelectionUserResponseDto userResponseDto = userService.getUser(Id);
         return ResponseEntity.status(HttpStatus.OK).body(userResponseDto);
     }
-    @PostMapping
+    @PostMapping("/authrole")
     ResponseEntity<UserResponseDto> postProduct(@RequestBody UserDto userDto) {
         UserResponseDto userResponseDto = userService.saveUser(userDto);
         return ResponseEntity.status(HttpStatus.OK).body(userResponseDto);

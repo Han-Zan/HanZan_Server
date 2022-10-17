@@ -5,14 +5,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import javax.persistence.Column;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class PreferredDto {
-    private Long useridx;
-    private Long drinkidx;
-
+public class CombinationDto {
+    private Long did;
+    private Long fid;
+    private float rating;
 }

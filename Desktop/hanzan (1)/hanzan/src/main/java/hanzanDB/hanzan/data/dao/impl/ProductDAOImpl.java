@@ -31,11 +31,6 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public List<Product> selectProductByCategoryandPrice(Integer category, Integer price) {
-        List<Product> selectedProducts = productRepository.findByCategoryAndPrice(category, price);
-        return selectedProducts;
-    }
-    @Override
     public Product selectProduct(Long number) {
         Product selectedProduct = productRepository.getById(number);
         return selectedProduct;

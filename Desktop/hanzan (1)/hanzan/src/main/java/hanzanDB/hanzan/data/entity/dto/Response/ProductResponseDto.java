@@ -10,13 +10,17 @@ import lombok.Setter;
 public class ProductResponseDto {
     private Long Id;
     private String name;
-    private int price;
-    private int stock;
     private int category;
     private float rating;
     private String aroma;
     private String taste;
     private String finish;
     private String tag;
+    private Integer sweet;
+    private Integer bitter;
+    private Integer salty;
+    private Integer sparkle;
+    private Integer sour;
+    private String img;
     public ProductResponseDto() {}
 }

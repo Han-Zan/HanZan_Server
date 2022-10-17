@@ -3,7 +3,6 @@ package hanzanDB.hanzan.data.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name="product")
@@ -28,12 +27,6 @@ public class Product {
     @Column(nullable = false, name = "drinkTag")
     private String tag;
 
-    @Column(nullable = false, name = "ItemPrice")
-    private Integer price;
-
-    @Column(nullable = false, name = "ItemStock")
-    private Integer stock;
-
     @Column(nullable = true, name = "Aroma")
     private String aroma;
 
@@ -43,6 +36,22 @@ public class Product {
     @Column(nullable = true, name ="Finish")
     private String finish;
 
+    @Column(name = "sweet")
+    private Integer sweet;
 
+    @Column(name = "bitter")
+    private Integer bitter;
+
+    @Column(name = "salty")
+    private Integer salty;
+
+    @Column(name = "sparkle")
+    private Integer sparkle;
+
+    @Column(name = "sour")
+    private Integer sour;
+
+    @Column(name = "images")
+    private String img;
 
 }
