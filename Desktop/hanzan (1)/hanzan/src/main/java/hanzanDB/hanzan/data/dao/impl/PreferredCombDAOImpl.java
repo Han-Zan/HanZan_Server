@@ -52,6 +52,7 @@ public class PreferredCombDAOImpl implements PreferredCombDAO {
             throw new Exception("조합 혹은 유저가 없습니다.");
         }
         Preferredcomb savePreferred = preferredCombRepository.save(preferred);
+
         return savePreferred;
     }
     @Override

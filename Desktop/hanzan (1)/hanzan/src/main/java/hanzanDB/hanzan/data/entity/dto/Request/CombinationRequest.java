@@ -16,4 +16,5 @@ public class CombinationRequest {
     private String drinkimg;
     private String foodimg;
     private float rating;
+    private Integer pnum;
 }

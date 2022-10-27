@@ -51,4 +51,10 @@ public class ProductController {
 
         return ResponseEntity.status(HttpStatus.OK).body("정상적 삭제");
     }
+
+    @GetMapping(value = "/all")
+    public ResponseEntity<List<Product>> getProductAll() {
+        List<Product> products = productService.getAllProduct();
+        return ResponseEntity.status(HttpStatus.OK).body(products);
+    }
 }

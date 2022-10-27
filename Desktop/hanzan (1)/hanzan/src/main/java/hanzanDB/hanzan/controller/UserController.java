@@ -27,9 +27,10 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.OK).body(userResponseDto);
     }
     @PostMapping("/authrole")
-    ResponseEntity<UserResponseDto> postProduct(@RequestBody UserDto userDto) {
+    ResponseEntity<Long> postProduct(@RequestBody UserDto userDto) {
         UserResponseDto userResponseDto = userService.saveUser(userDto);
-        return ResponseEntity.status(HttpStatus.OK).body(userResponseDto);
+        Long userid = userResponseDto.getId();
+        return ResponseEntity.status(HttpStatus.OK).body(userid);
     }
     @PutMapping(value = "/nickname")
     public ResponseEntity<UserResponseDto> changeUserNickname(@RequestBody ChangeUserNickNameDto changeUserNickNameDto) throws Exception {

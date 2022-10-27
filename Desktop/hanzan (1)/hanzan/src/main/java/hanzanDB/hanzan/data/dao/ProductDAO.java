@@ -11,4 +11,6 @@ public interface ProductDAO {
     List<Product> selectProductByCategory(Integer category);
     Product updateProductName(Long number, String name) throws Exception;
     void deleteProduct(Long number) throws Exception;
+
+    List<Product> getAllProduct();
 }

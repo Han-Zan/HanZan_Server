@@ -8,13 +8,14 @@ import hanzanDB.hanzan.data.entity.dto.Request.CombinationRequest;
 import hanzanDB.hanzan.service.PreferredCombService;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class PreferredCombServiceImpl implements PreferredCombService {
+    private final CombinationDAO combinationDAO;
     private final PreferredCombDAO preferredCombDAO;
-    public PreferredCombServiceImpl(PreferredCombDAO preferredCombDAO) {
+    public PreferredCombServiceImpl(CombinationDAO combinationDAO, PreferredCombDAO preferredCombDAO) {
+        this.combinationDAO = combinationDAO;
         this.preferredCombDAO = preferredCombDAO;
     }
 
@@ -28,9 +29,11 @@ public class PreferredCombServiceImpl implements PreferredCombService {
         preferred.setCombid(preferreddto.getCombid());
         preferred.setUid(preferreddto.getUid());
         Preferredcomb pref = preferredCombDAO.insertPreferred(preferred);
+        combinationDAO.updateCount(preferreddto.getCombid());
     }
     @Override
     public void deletePreferred(Long userId, Long combidx) throws Exception {
         preferredCombDAO.deletePreferred(userId, combidx);
+        combinationDAO.deleteCount(combidx);
     }
 }

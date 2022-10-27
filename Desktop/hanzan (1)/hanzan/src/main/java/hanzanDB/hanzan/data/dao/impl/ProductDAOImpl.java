@@ -63,5 +63,11 @@ public class ProductDAOImpl implements ProductDAO {
         }
     }
 
+    @Override
+    public List<Product> getAllProduct() {
+        return productRepository.findAll();
+
+    }
+
 
 }

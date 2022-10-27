@@ -3,7 +3,6 @@ package hanzanDB.hanzan.data.dao.impl;
 import hanzanDB.hanzan.data.dao.CombinationDAO;
 import hanzanDB.hanzan.data.entity.Combination;
 import hanzanDB.hanzan.data.entity.Food;
-import hanzanDB.hanzan.data.entity.Preferredcomb;
 import hanzanDB.hanzan.data.entity.Product;
 import hanzanDB.hanzan.data.entity.dto.Request.CombinationRequest;
 import hanzanDB.hanzan.data.repository.CombinationRepository;
@@ -64,8 +63,39 @@ public class CombinationDAOImpl implements CombinationDAO {
             combreq.setFoodname(foodRepository.getReferenceById(comb.getFid()).getName());
             combreq.setDrinkimg(productRepository.getReferenceById(comb.getDid()).getImg());
             combreq.setFoodimg(foodRepository.getReferenceById(comb.getDid()).getImg());
+            combreq.setPnum(comb.getPnum());
             newlist.add(combreq);
         }
         return newlist;
+    }
+    @Override
+    public Combination updateCount(Long cid) throws Exception {
+        Optional<Combination> getCombination = combinationRepository.findById(cid);
+        Combination comb;
+        if(getCombination.isPresent()) {
+            Combination combination = getCombination.get();
+            int num = combination.getPnum();
+            num = num + 1;
+            combination.setPnum(num);
+            comb = combinationRepository.save(combination);
+        } else {
+            throw new Exception();
+        }
+        return comb;
+    }
+    @Override
+    public Combination deleteCount(Long cid) throws Exception {
+        Optional<Combination> getCombination = combinationRepository.findById(cid);
+        Combination comb;
+        if(getCombination.isPresent()) {
+            Combination combination = getCombination.get();
+            int num = combination.getPnum();
+            num = num - 1;
+            combination.setPnum(num);
+            comb = combinationRepository.save(combination);
+        } else {
+            throw new Exception();
+        }
+        return comb;
     }
 }

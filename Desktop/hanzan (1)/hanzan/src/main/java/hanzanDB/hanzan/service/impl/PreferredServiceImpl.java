@@ -26,6 +26,7 @@ public class PreferredServiceImpl implements PreferredService {
         preferred.setUseridx(preferredDto.getUseridx());
         preferred.setDrinks(preferredDto.getDrinkidx());
         preferred.setCreatedAt(LocalDateTime.now());
+
         Preferred newpref = preferredDAO.insertPreferred(preferred);
 
         PreferredResponseDto preferredResponseDto = new PreferredResponseDto();

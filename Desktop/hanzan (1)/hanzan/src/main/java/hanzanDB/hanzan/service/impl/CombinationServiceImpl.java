@@ -5,7 +5,6 @@ import hanzanDB.hanzan.data.entity.Combination;
 import hanzanDB.hanzan.data.entity.dto.CombinationDto;
 import hanzanDB.hanzan.data.entity.dto.Request.CombinationRequest;
 import hanzanDB.hanzan.data.entity.dto.Response.CombinationResponseDto;
-import hanzanDB.hanzan.data.repository.CombinationRepository;
 import hanzanDB.hanzan.service.CombinationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +30,7 @@ public class CombinationServiceImpl implements CombinationService {
         combinationResponseDto.setFoodname(comb.getFoodname());
         combinationResponseDto.setDrinkimg(comb.getDrinkimg());
         combinationResponseDto.setFoodimg(comb.getFoodimg());
+        combinationResponseDto.setPnum(comb.getPnum());
         return combinationResponseDto;
     }
     @Override
@@ -44,6 +44,7 @@ public class CombinationServiceImpl implements CombinationService {
             combinationResponseDto.setRating(combinationRequest.getRating());
             combinationResponseDto.setDrinkimg(combinationRequest.getDrinkimg());
             combinationResponseDto.setFoodimg(combinationRequest.getFoodimg());
+            combinationResponseDto.setPnum(combinationRequest.getPnum());
             list.add(combinationResponseDto);
         }
         return list;
@@ -55,6 +56,7 @@ public class CombinationServiceImpl implements CombinationService {
         combination.setDid(combinationDto.getDid());
         combination.setFid(combinationDto.getFid());
         combination.setRating(combinationDto.getRating());
+        combination.setPnum(0);
         Combination comb = combinationDAO.insertCombination(combination);
     }
 

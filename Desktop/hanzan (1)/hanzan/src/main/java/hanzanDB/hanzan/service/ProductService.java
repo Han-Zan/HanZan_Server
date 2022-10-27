@@ -14,6 +14,8 @@ public interface ProductService {
 
     List<Product> getProductByCategory(Integer category);
 
+    List<Product> getAllProduct();
+
 
     void deleteProduct(Long number) throws Exception;
 }

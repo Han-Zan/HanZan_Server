@@ -9,5 +9,7 @@ import java.util.Optional;
 
 public interface PreferredCombRepository extends JpaRepository<Preferredcomb, Long > {
     List<Preferredcomb> findByUid(Long id);
+
+    List<Preferredcomb> findByCombid(Long id);
     Optional<Preferredcomb> findByUidAndCombid (Long id, Long cid);
 }

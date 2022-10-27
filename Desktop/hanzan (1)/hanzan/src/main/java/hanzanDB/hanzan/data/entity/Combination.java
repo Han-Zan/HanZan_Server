@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="combination")
@@ -25,5 +26,6 @@ public class Combination {
     @Column(nullable = false, name = "rating")
     private float rating;
 
-
+    @Column(nullable = false, name = "num_people")
+    private Integer pnum;
 }

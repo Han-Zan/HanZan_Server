@@ -106,4 +106,9 @@ public class ProductServiceImpl implements ProductService {
     public void deleteProduct(Long number) throws Exception {
         productDAO.deleteProduct(number);
     }
+
+    @Override
+    public List<Product> getAllProduct() {
+        return productDAO.getAllProduct();
+    }
 }

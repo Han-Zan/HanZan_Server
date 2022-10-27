@@ -1,7 +1,5 @@
 package hanzanDB.hanzan.service;
 
-import hanzanDB.hanzan.data.entity.Combination;
-import hanzanDB.hanzan.data.entity.Preferredcomb;
 import hanzanDB.hanzan.data.entity.dto.PreferredCombDto;
 import hanzanDB.hanzan.data.entity.dto.Request.CombinationRequest;
 
