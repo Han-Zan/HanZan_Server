@@ -22,9 +22,6 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, name = "kakao_token")
-    private String token;
-
     @Column(nullable = true, name = "profile_image_url")
     private String profileimage;
 
@@ -39,6 +36,9 @@ public class User {
 
     @Column(nullable = false, name = "sbti_type")
     private String sbti;
+
+    @Column(nullable = false, name = "kakao_id")
+    private Long kakaoid;
 
     @Column(nullable = false)
     @Enumerated(value = EnumType.STRING)

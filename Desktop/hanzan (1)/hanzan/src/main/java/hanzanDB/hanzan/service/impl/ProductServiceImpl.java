@@ -1,10 +1,11 @@
 package hanzanDB.hanzan.service.impl;
 
 
-import hanzanDB.hanzan.data.dao.ProductDAO;
+import hanzanDB.hanzan.data.entity.dao.ProductDAO;
 import hanzanDB.hanzan.data.entity.dto.ProductDto;
 import hanzanDB.hanzan.data.entity.dto.Response.ProductResponseDto;
 import hanzanDB.hanzan.data.entity.Product;
+import hanzanDB.hanzan.data.entity.dto.Response.ReturnDrinkResponseDto;
 import hanzanDB.hanzan.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,11 +34,12 @@ public class ProductServiceImpl implements ProductService {
         productResponseDto.setCategory(product.getCategory());
         productResponseDto.setTag(product.getTag());
         productResponseDto.setSweet(product.getSweet());
-        productResponseDto.setSalty(product.getSalty());
+        productResponseDto.setBody(product.getBody());
         productResponseDto.setBitter(product.getBitter());
         productResponseDto.setSparkle(product.getSparkle());
         productResponseDto.setSour(product.getSour());
         productResponseDto.setImg(product.getImg());
+        productResponseDto.setAlcohol(product.getAlcohol());
         return productResponseDto;
     }
 
@@ -54,9 +56,10 @@ public class ProductServiceImpl implements ProductService {
         product.setSweet(productDto.getSweet());
         product.setBitter(productDto.getBitter());
         product.setSour(productDto.getSour());
-        product.setSalty(productDto.getSalty());
+        product.setBody(productDto.getBody());
         product.setSparkle(productDto.getSparkle());
         product.setImg(productDto.getImg());
+        product.setAlcohol(productDto.getAlcohol());
         Product savedProduct = productDAO.insertProduct(product);
 
         ProductResponseDto productResponseDto = new ProductResponseDto();
@@ -71,9 +74,10 @@ public class ProductServiceImpl implements ProductService {
         productResponseDto.setSweet(savedProduct.getSweet());
         productResponseDto.setBitter(savedProduct.getBitter());
         productResponseDto.setSour(savedProduct.getSour());
-        productResponseDto.setSalty(savedProduct.getSalty());
+        productResponseDto.setBody(savedProduct.getBody());
         productResponseDto.setSparkle(savedProduct.getSparkle());
         productResponseDto.setImg(savedProduct.getImg());
+        productResponseDto.setAlcohol(savedProduct.getAlcohol());
         return productResponseDto;
     }
 
@@ -96,9 +100,10 @@ public class ProductServiceImpl implements ProductService {
         productResponseDto.setSweet(changedProduct.getSweet());
         productResponseDto.setBitter(changedProduct.getBitter());
         productResponseDto.setSour(changedProduct.getSour());
-        productResponseDto.setSalty(changedProduct.getSalty());
+        productResponseDto.setBody(changedProduct.getBody());
         productResponseDto.setSparkle(changedProduct.getSparkle());
         productResponseDto.setImg(changedProduct.getImg());
+        productResponseDto.setAlcohol(changedProduct.getAlcohol());
         return productResponseDto;
     }
 
@@ -108,7 +113,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> getAllProduct() {
-        return productDAO.getAllProduct();
+    public List<ReturnDrinkResponseDto> getAllProduct(Long userId) {
+        return productDAO.getAllProduct(userId);
     }
 }

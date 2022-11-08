@@ -1,5 +1,6 @@
 package hanzanDB.hanzan.controller;
 
+import hanzanDB.hanzan.data.entity.dto.Request.ChangeUserImgNameDto;
 import hanzanDB.hanzan.data.entity.dto.Request.ChangeUserNickNameDto;
 import hanzanDB.hanzan.data.entity.dto.Request.ChangeUserSBTIDto;
 import hanzanDB.hanzan.data.entity.dto.Response.SelectionUserResponseDto;
@@ -29,13 +30,18 @@ public class UserController {
     @PostMapping("/authrole")
     ResponseEntity<Long> postProduct(@RequestBody UserDto userDto) {
         UserResponseDto userResponseDto = userService.saveUser(userDto);
-        Long userid = userResponseDto.getId();
+        Long userid = userResponseDto.getUserIdx();
         return ResponseEntity.status(HttpStatus.OK).body(userid);
     }
     @PutMapping(value = "/nickname")
-    public ResponseEntity<UserResponseDto> changeUserNickname(@RequestBody ChangeUserNickNameDto changeUserNickNameDto) throws Exception {
-        UserResponseDto userResponseDto = userService.changeUserNickname(changeUserNickNameDto.getNumber(), changeUserNickNameDto.getNewNickname());
-        return ResponseEntity.status(HttpStatus.OK).body(userResponseDto);
+    public ResponseEntity<String> changeUserNickname(Long userIdx, String userName) throws Exception {
+        String returnstr = userService.changeUserNickname(userIdx , userName);
+        return ResponseEntity.status(HttpStatus.OK).body(returnstr);
+    }
+    @PutMapping(value = "/profile")
+    public ResponseEntity<String> changeUserProfile(Long userIdx, String userImg) throws Exception {
+        String returnstr = userService.changeUserImg(userIdx, userImg);
+        return ResponseEntity.status(HttpStatus.OK).body(returnstr);
     }
     @PutMapping(value = "/sbti")
     public ResponseEntity<UserResponseDto> changeUserSBTI(@RequestBody ChangeUserSBTIDto changeUserSBTIDto) throws Exception {
@@ -43,8 +49,8 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.OK).body(userResponseDto);
     }
     @DeleteMapping()
-    public ResponseEntity<String> deleteProductName(Long number) throws Exception {
-        userService.deleteUser(number);
+    public ResponseEntity<String> deleteProductName(Long userId) throws Exception {
+        userService.deleteUser(userId);
         return ResponseEntity.status(HttpStatus.OK).body("정상적 삭제");
     }
 }

@@ -1,14 +1,15 @@
-package hanzanDB.hanzan.data.dao;
+package hanzanDB.hanzan.data.entity.dao;
 
 import hanzanDB.hanzan.data.entity.User;
 
 import java.util.Optional;
 
 public interface UserDAO {
-    Optional<User> getUserByToken(String token);
     User insertUser(User user);
     User selectProduct(Long number);
-    User updateNickName(Long number, String name) throws Exception;
+    String updateNickName(Long userId, String name) throws Exception;
+
+    String updateImg(Long userId, String image) throws Exception;
     User updateSBTI(Long number, String name) throws Exception;
     void deleteUser(Long number) throws Exception;
 }

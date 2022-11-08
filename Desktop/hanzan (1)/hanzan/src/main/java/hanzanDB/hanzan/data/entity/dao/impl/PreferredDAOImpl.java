@@ -1,8 +1,9 @@
-package hanzanDB.hanzan.data.dao.impl;
+package hanzanDB.hanzan.data.entity.dao.impl;
 
-import hanzanDB.hanzan.data.dao.PreferredDAO;
+import hanzanDB.hanzan.data.entity.dao.PreferredDAO;
 import hanzanDB.hanzan.data.entity.Preferred;
 import hanzanDB.hanzan.data.entity.Product;
+import hanzanDB.hanzan.data.entity.dto.Response.PreferredProdResponseDto;
 import hanzanDB.hanzan.data.repository.PreferredRepository;
 import hanzanDB.hanzan.data.repository.ProductRepository;
 import hanzanDB.hanzan.data.repository.UserRepository;
@@ -26,10 +27,19 @@ public class PreferredDAOImpl implements PreferredDAO {
     }
 
     @Override
-    public List<Product> getPreferred(Long userId) throws Exception {
-        List<Product> list = new ArrayList<Product>();
+    public List<PreferredProdResponseDto> getPreferred(Long userId) throws Exception {
+        List<PreferredProdResponseDto> list = new ArrayList<>();
         for(Preferred pref : preferredRepository.findByUseridx(userId)) {
-            list.add(productRepository.findById(pref.getDrinks()).get());
+            PreferredProdResponseDto prodResponseDto = new PreferredProdResponseDto();
+            Product prod = productRepository.findById(pref.getDrinks()).get();
+            prodResponseDto.setIdx(pref.getId());
+            prodResponseDto.setName(prod.getName());
+            prodResponseDto.setImg(prod.getImg());
+            prodResponseDto.setCategory(prod.getCategory());
+            prodResponseDto.setDrinkId(prod.getId());
+            prodResponseDto.setTag(prod.getTag());
+            prodResponseDto.setRating(prod.getRating());
+            list.add(prodResponseDto);
         }
         return list;
     }

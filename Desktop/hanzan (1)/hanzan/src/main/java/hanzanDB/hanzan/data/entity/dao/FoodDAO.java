@@ -1,4 +1,4 @@
-package hanzanDB.hanzan.data.dao;
+package hanzanDB.hanzan.data.entity.dao;
 
 import hanzanDB.hanzan.data.entity.Food;
 

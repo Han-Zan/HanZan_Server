@@ -1,4 +1,4 @@
-package hanzanDB.hanzan.data.dao;
+package hanzanDB.hanzan.data.entity.dao;
 
 import hanzanDB.hanzan.data.entity.Combination;
 import hanzanDB.hanzan.data.entity.dto.Request.CombinationRequest;

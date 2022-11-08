@@ -1,7 +1,8 @@
-package hanzanDB.hanzan.data.dao;
+package hanzanDB.hanzan.data.entity.dao;
 
 
 import hanzanDB.hanzan.data.entity.Product;
+import hanzanDB.hanzan.data.entity.dto.Response.ReturnDrinkResponseDto;
 
 import java.util.List;
 
@@ -12,5 +13,5 @@ public interface ProductDAO {
     Product updateProductName(Long number, String name) throws Exception;
     void deleteProduct(Long number) throws Exception;
 
-    List<Product> getAllProduct();
+    List<ReturnDrinkResponseDto> getAllProduct(Long userid);
 }

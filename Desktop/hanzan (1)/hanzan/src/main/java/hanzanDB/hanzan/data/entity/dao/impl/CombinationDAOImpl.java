@@ -1,6 +1,6 @@
-package hanzanDB.hanzan.data.dao.impl;
+package hanzanDB.hanzan.data.entity.dao.impl;
 
-import hanzanDB.hanzan.data.dao.CombinationDAO;
+import hanzanDB.hanzan.data.entity.dao.CombinationDAO;
 import hanzanDB.hanzan.data.entity.Combination;
 import hanzanDB.hanzan.data.entity.Food;
 import hanzanDB.hanzan.data.entity.Product;
@@ -51,6 +51,7 @@ public class CombinationDAOImpl implements CombinationDAO {
         combreq.setFoodimg(foodRepository.getReferenceById(combi.getFid()).getImg());
         combreq.setDrinkimg(productRepository.getReferenceById(combi.getDid()).getImg());
         combreq.setRating(combi.getRating());
+        combreq.setPnum(combi.getPnum());
         return combreq;
     }
     @Override

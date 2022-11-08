@@ -1,9 +1,10 @@
 package hanzanDB.hanzan.service.impl;
 
-import hanzanDB.hanzan.data.dao.PreferredDAO;
+import hanzanDB.hanzan.data.entity.dao.PreferredDAO;
 import hanzanDB.hanzan.data.entity.Preferred;
 import hanzanDB.hanzan.data.entity.Product;
 import hanzanDB.hanzan.data.entity.dto.PreferredDto;
+import hanzanDB.hanzan.data.entity.dto.Response.PreferredProdResponseDto;
 import hanzanDB.hanzan.data.entity.dto.Response.PreferredResponseDto;
 import hanzanDB.hanzan.service.PreferredService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +39,7 @@ public class PreferredServiceImpl implements PreferredService {
     }
 
     @Override
-    public List<Product> getPreferredProd(Long userid) throws Exception{
+    public List<PreferredProdResponseDto> getPreferredProd(Long userid) throws Exception{
         return preferredDAO.getPreferred(userid);
     }
     @Override

@@ -1,6 +1,6 @@
-package hanzanDB.hanzan.data.dao.impl;
+package hanzanDB.hanzan.data.entity.dao.impl;
 
-import hanzanDB.hanzan.data.dao.PreferredCombDAO;
+import hanzanDB.hanzan.data.entity.dao.PreferredCombDAO;
 import hanzanDB.hanzan.data.entity.Combination;
 import hanzanDB.hanzan.data.entity.Preferredcomb;
 import hanzanDB.hanzan.data.entity.User;
@@ -37,8 +37,11 @@ public class PreferredCombDAOImpl implements PreferredCombDAO {
             combinationRequest.setId(combi.getId());
             combinationRequest.setFoodname(foodRepository.getReferenceById(combi.getFid()).getName());
             combinationRequest.setDrinkname(productRepository.getReferenceById(combi.getDid()).getName());
+            combinationRequest.setDrinkCategory(productRepository.getReferenceById(combi.getDid()).getCategory());
+            combinationRequest.setFoodCategory(foodRepository.getReferenceById(combi.getFid()).getFoodType());
             combinationRequest.setDrinkimg(productRepository.getReferenceById(combi.getDid()).getImg());
             combinationRequest.setFoodimg(foodRepository.getReferenceById(combi.getFid()).getImg());
+            combinationRequest.setPnum(combi.getPnum());
             combinationRequest.setRating(combi.getRating());
             list.add(combinationRequest);
         }

@@ -1,7 +1,7 @@
 package hanzanDB.hanzan.service.impl;
 
-import hanzanDB.hanzan.data.dao.CombinationDAO;
-import hanzanDB.hanzan.data.dao.PreferredCombDAO;
+import hanzanDB.hanzan.data.entity.dao.CombinationDAO;
+import hanzanDB.hanzan.data.entity.dao.PreferredCombDAO;
 import hanzanDB.hanzan.data.entity.Preferredcomb;
 import hanzanDB.hanzan.data.entity.dto.PreferredCombDto;
 import hanzanDB.hanzan.data.entity.dto.Request.CombinationRequest;

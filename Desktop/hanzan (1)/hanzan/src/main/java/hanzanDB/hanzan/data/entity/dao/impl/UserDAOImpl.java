@@ -1,6 +1,6 @@
-package hanzanDB.hanzan.data.dao.impl;
+package hanzanDB.hanzan.data.entity.dao.impl;
 
-import hanzanDB.hanzan.data.dao.UserDAO;
+import hanzanDB.hanzan.data.entity.dao.UserDAO;
 import hanzanDB.hanzan.data.entity.User;
 import hanzanDB.hanzan.data.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +16,6 @@ public class UserDAOImpl implements UserDAO {
         this.userRepository = userRepository;
     }
     @Override
-    public Optional<User> getUserByToken(String token) {
-        Optional<User> user = userRepository.findByToken(token);
-        return user;
-    }
-    @Override
     public User insertUser(User user) {
         User savedUser = userRepository.save(user);
         return savedUser;
@@ -31,8 +26,8 @@ public class UserDAOImpl implements UserDAO {
         return selectedProduct;
     }
     @Override
-    public User updateNickName(Long number, String name) throws Exception {
-        Optional<User> selectedUser = userRepository.findById(number);
+    public String updateNickName(Long userId, String name) throws Exception {
+        Optional<User> selectedUser = userRepository.findById(userId);
         User updateUser;
         if(selectedUser.isPresent()) {
             User user = selectedUser.get();
@@ -41,11 +36,11 @@ public class UserDAOImpl implements UserDAO {
         }else {
             throw new Exception();
         }
-        return updateUser;
+        return "정상적 변경";
     }
     @Override
-    public User updateSBTI(Long number, String name) throws Exception {
-        Optional<User> selectedUser = userRepository.findById(number);
+    public User updateSBTI(Long userId, String name) throws Exception {
+        Optional<User> selectedUser = userRepository.findById(userId);
         User updateUser;
         if(selectedUser.isPresent()) {
             User user = selectedUser.get();
@@ -55,6 +50,20 @@ public class UserDAOImpl implements UserDAO {
             throw new Exception();
         }
         return updateUser;
+    }
+
+    @Override
+    public String updateImg(Long userId, String image) throws Exception {
+        Optional<User> selectedUser = userRepository.findById(userId);
+        User updateUser;
+        if(selectedUser.isPresent()) {
+            User user = selectedUser.get();
+            user.setProfileimage(image);
+            updateUser = userRepository.save(user);
+        }else {
+            throw new Exception();
+        }
+        return "정상적 변경";
     }
 
     @Override

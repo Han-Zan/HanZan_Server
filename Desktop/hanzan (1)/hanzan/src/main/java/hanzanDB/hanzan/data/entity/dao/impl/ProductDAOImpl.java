@@ -1,21 +1,27 @@
-package hanzanDB.hanzan.data.dao.impl;
+package hanzanDB.hanzan.data.entity.dao.impl;
 
 
-import hanzanDB.hanzan.data.dao.ProductDAO;
+import hanzanDB.hanzan.data.entity.Preferred;
+import hanzanDB.hanzan.data.entity.dao.ProductDAO;
 import hanzanDB.hanzan.data.entity.Product;
+import hanzanDB.hanzan.data.entity.dto.Response.ReturnDrinkResponseDto;
+import hanzanDB.hanzan.data.repository.PreferredRepository;
 import hanzanDB.hanzan.data.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Component
 public class ProductDAOImpl implements ProductDAO {
     private final ProductRepository productRepository;
+    private final PreferredRepository preferredRepository;
     @Autowired
-    public ProductDAOImpl(ProductRepository productRepository) {
+    public ProductDAOImpl(ProductRepository productRepository, PreferredRepository preferredRepository) {
         this.productRepository = productRepository;
+        this.preferredRepository = preferredRepository;
     }
 
     @Override
@@ -64,8 +70,26 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public List<Product> getAllProduct() {
-        return productRepository.findAll();
+    public List<ReturnDrinkResponseDto> getAllProduct(Long userid) {
+        List<Product> product = productRepository.findAll();
+        List<ReturnDrinkResponseDto> returnDrinkResponseDtos = new ArrayList<>();
+        for(Product pr : product) {
+            ReturnDrinkResponseDto returns = new ReturnDrinkResponseDto();
+            returns.setId(pr.getId());
+            returns.setImg(pr.getImg());
+            returns.setTag(pr.getTag());
+            returns.setCategory(pr.getCategory());
+            returns.setName(pr.getName());
+            returns.setRating(pr.getRating());
+            Optional<Preferred> preferred = preferredRepository.findByUseridxAndDrinks(userid, pr.getId());
+            if(preferred.isPresent()) {
+                returns.setIsPrefer(true);
+            } else {
+                returns.setIsPrefer(false);
+            }
+            returnDrinkResponseDtos.add(returns);
+        }
+        return returnDrinkResponseDtos;
 
     }
 

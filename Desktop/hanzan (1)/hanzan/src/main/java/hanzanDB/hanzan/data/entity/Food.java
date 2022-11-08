@@ -41,4 +41,7 @@ public class Food {
 
     @Column(name = "images")
     private String img;
+
+    @Column(name = "foodType")
+    private Integer foodType;
 }

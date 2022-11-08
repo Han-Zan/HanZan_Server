@@ -7,7 +7,8 @@ import hanzanDB.hanzan.data.entity.dto.Response.UserResponseDto;
 public interface UserService {
     SelectionUserResponseDto getUser(Long Id);
     UserResponseDto saveUser(UserDto userDto);
-    UserResponseDto changeUserNickname(Long Id, String nickname) throws Exception;
+    String changeUserNickname(Long Id, String nickname) throws Exception;
+    String changeUserImg(Long id, String profileImg) throws Exception;
     UserResponseDto changeUserSBTI(Long id, String sbti) throws Exception;
     void deleteUser(Long id) throws Exception;
 }

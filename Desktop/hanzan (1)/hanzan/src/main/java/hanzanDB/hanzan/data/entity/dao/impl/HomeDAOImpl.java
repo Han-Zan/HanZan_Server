@@ -1,11 +1,11 @@
-package hanzanDB.hanzan.data.dao.impl;
+package hanzanDB.hanzan.data.entity.dao.impl;
 
-import hanzanDB.hanzan.data.dao.HomeDAO;
+import hanzanDB.hanzan.data.entity.dao.HomeDAO;
 import hanzanDB.hanzan.data.entity.Combination;
 import hanzanDB.hanzan.data.entity.Preferredcomb;
-import hanzanDB.hanzan.data.entity.dto.PreferredCombDto;
 import hanzanDB.hanzan.data.entity.dto.Response.HomeResponseDto;
 import hanzanDB.hanzan.data.repository.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -20,6 +20,7 @@ public class HomeDAOImpl implements HomeDAO {
     private final FoodRepository foodRepository;
     private final UserRepository userRepository;
 
+    @Autowired
     public HomeDAOImpl(PreferredCombRepository preferredCombRepository, ProductRepository productRepository, CombinationRepository combinationRository, FoodRepository foodRepository, UserRepository userRepository) {
         this.preferredCombRepository = preferredCombRepository;
         this.productRepository = productRepository;
@@ -38,6 +39,7 @@ public class HomeDAOImpl implements HomeDAO {
             homeResponseDto.setDrink_name(productRepository.getReferenceById(combination.getDid()).getName());
             homeResponseDto.setFood_img(foodRepository.getReferenceById(combination.getFid()).getImg());
             homeResponseDto.setFood_name(foodRepository.getReferenceById(combination.getFid()).getName());
+
             Optional<Preferredcomb> comb = preferredCombRepository.findByUidAndCombid(uid, combination.getId());
             if(comb.isPresent()){
                 homeResponseDto.setIs_prefer(true);

@@ -1,6 +1,6 @@
 package hanzanDB.hanzan.service.impl;
 
-import hanzanDB.hanzan.data.dao.CombinationDAO;
+import hanzanDB.hanzan.data.entity.dao.CombinationDAO;
 import hanzanDB.hanzan.data.entity.Combination;
 import hanzanDB.hanzan.data.entity.dto.CombinationDto;
 import hanzanDB.hanzan.data.entity.dto.Request.CombinationRequest;
@@ -31,6 +31,8 @@ public class CombinationServiceImpl implements CombinationService {
         combinationResponseDto.setDrinkimg(comb.getDrinkimg());
         combinationResponseDto.setFoodimg(comb.getFoodimg());
         combinationResponseDto.setPnum(comb.getPnum());
+
+
         return combinationResponseDto;
     }
     @Override

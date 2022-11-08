@@ -1,7 +1,6 @@
 package hanzanDB.hanzan.service.impl;
 
-import hanzanDB.hanzan.data.dao.FoodDAO;
-import hanzanDB.hanzan.data.dao.PreferredDAO;
+import hanzanDB.hanzan.data.entity.dao.FoodDAO;
 import hanzanDB.hanzan.data.entity.Food;
 import hanzanDB.hanzan.data.entity.dto.FoodDto;
 import hanzanDB.hanzan.data.entity.dto.Response.FoodResponseDto;

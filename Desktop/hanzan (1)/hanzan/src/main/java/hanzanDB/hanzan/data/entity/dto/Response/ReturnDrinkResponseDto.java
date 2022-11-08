@@ -5,19 +5,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@AllArgsConstructor
 @Getter
-@NoArgsConstructor
 @Setter
-public class FoodResponseDto {
+@AllArgsConstructor
+@NoArgsConstructor
+public class ReturnDrinkResponseDto {
     private Long id;
     private String name;
-    private Integer light;
-    private Integer oily;
-    private Integer spicy;
-    private Integer dessert;
-    private Integer fruit;
+    private int category;
+    private float rating;
     private String tag;
     private String img;
-    private Integer foodType;
+    private Boolean isPrefer;
 }

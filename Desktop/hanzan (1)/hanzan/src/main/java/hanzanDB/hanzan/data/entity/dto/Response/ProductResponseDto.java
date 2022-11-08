@@ -18,9 +18,10 @@ public class ProductResponseDto {
     private String tag;
     private Integer sweet;
     private Integer bitter;
-    private Integer salty;
+    private Integer body;
     private Integer sparkle;
     private Integer sour;
     private String img;
+    private float alcohol;
     public ProductResponseDto() {}
 }

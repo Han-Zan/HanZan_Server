@@ -42,8 +42,8 @@ public class Product {
     @Column(name = "bitter")
     private Integer bitter;
 
-    @Column(name = "salty")
-    private Integer salty;
+    @Column(name = "body")
+    private Integer body;
 
     @Column(name = "sparkle")
     private Integer sparkle;
@@ -54,4 +54,6 @@ public class Product {
     @Column(name = "images")
     private String img;
 
+    @Column(name = "alcohol")
+    private float alcohol;
 }

@@ -2,6 +2,7 @@ package hanzanDB.hanzan.controller;
 
 import hanzanDB.hanzan.data.entity.Product;
 import hanzanDB.hanzan.data.entity.dto.PreferredDto;
+import hanzanDB.hanzan.data.entity.dto.Response.PreferredProdResponseDto;
 import hanzanDB.hanzan.data.entity.dto.Response.PreferredResponseDto;
 import hanzanDB.hanzan.service.PreferredService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +23,8 @@ public class PreferredController {
     }
 
     @GetMapping(name = "/user")
-    public ResponseEntity<List<Product>> GetProduct (Long userid) throws Exception {
-        List<Product> prod = preferredService.getPreferredProd(userid);
+    public ResponseEntity<List<PreferredProdResponseDto>> GetProduct (Long userid) throws Exception {
+        List<PreferredProdResponseDto> prod = preferredService.getPreferredProd(userid);
         return ResponseEntity.status(HttpStatus.OK).body(prod);
     }
     @PostMapping()

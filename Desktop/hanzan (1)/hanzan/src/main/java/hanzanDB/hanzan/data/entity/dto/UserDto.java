@@ -15,7 +15,7 @@ public class UserDto {
     private String nickname;
     private int userage;
     private String sbti;
-    private String token;
     private String profileimage;
+    private Long kakaoId;
     private boolean isMale = true;
 }

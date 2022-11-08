@@ -4,6 +4,7 @@ import hanzanDB.hanzan.data.entity.Product;
 import hanzanDB.hanzan.data.entity.dto.Request.ChangeProductNameDto;
 import hanzanDB.hanzan.data.entity.dto.ProductDto;
 import hanzanDB.hanzan.data.entity.dto.Response.ProductResponseDto;
+import hanzanDB.hanzan.data.entity.dto.Response.ReturnDrinkResponseDto;
 import hanzanDB.hanzan.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -53,8 +54,8 @@ public class ProductController {
     }
 
     @GetMapping(value = "/all")
-    public ResponseEntity<List<Product>> getProductAll() {
-        List<Product> products = productService.getAllProduct();
+    public ResponseEntity<List<ReturnDrinkResponseDto>> getProductAll(Long userId) {
+        List<ReturnDrinkResponseDto> products = productService.getAllProduct(userId);
         return ResponseEntity.status(HttpStatus.OK).body(products);
     }
 }

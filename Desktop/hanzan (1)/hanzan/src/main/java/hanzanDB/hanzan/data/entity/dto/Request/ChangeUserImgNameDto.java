@@ -5,11 +5,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@AllArgsConstructor
 @Getter
 @Setter
+@AllArgsConstructor
 @NoArgsConstructor
-public class ChangeUserNickNameDto {
+public class ChangeUserImgNameDto {
     private Long userIdx;
-    private String newNickname;
+    private String newImg;
 }

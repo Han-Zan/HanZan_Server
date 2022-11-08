@@ -20,4 +20,5 @@ public class FoodDto {
     private Integer fruit;
     private String tag;
     private String img;
+    private Integer foodType;
 }

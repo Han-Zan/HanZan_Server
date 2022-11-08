@@ -1,6 +1,6 @@
 package hanzanDB.hanzan.service.impl;
 
-import hanzanDB.hanzan.data.dao.HomeDAO;
+import hanzanDB.hanzan.data.entity.dao.HomeDAO;
 import hanzanDB.hanzan.data.entity.dto.Response.HomeResponseDto;
 import hanzanDB.hanzan.service.HomeService;
 import org.springframework.beans.factory.annotation.Autowired;

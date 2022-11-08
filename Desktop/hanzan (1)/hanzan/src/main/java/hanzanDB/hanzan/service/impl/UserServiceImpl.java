@@ -1,6 +1,6 @@
 package hanzanDB.hanzan.service.impl;
 
-import hanzanDB.hanzan.data.dao.UserDAO;
+import hanzanDB.hanzan.data.entity.dao.UserDAO;
 import hanzanDB.hanzan.data.entity.Gender;
 import hanzanDB.hanzan.data.entity.User;
 import hanzanDB.hanzan.data.entity.dto.Response.SelectionUserResponseDto;
@@ -9,8 +9,6 @@ import hanzanDB.hanzan.data.entity.dto.Response.UserResponseDto;
 import hanzanDB.hanzan.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -27,8 +25,8 @@ public class UserServiceImpl implements UserService {
         userResponseDto.setUserage(user.getUserage());
         userResponseDto.setUsername(user.getUsername());
         userResponseDto.setProfileimage(user.getProfileimage());
-        userResponseDto.setToken(user.getToken());
         userResponseDto.setNickname(user.getNickname());
+        userResponseDto.setKakaoId(user.getKakaoid());
         if(user.getGender() == Gender.FEMALE) {
             userResponseDto.setMale(false);
         } else {
@@ -39,47 +37,45 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserResponseDto saveUser(UserDto userDto) {
-        Optional<User> finduser = userDAO.getUserByToken(userDto.getToken());
         UserResponseDto userResponseDto = new UserResponseDto();
-        if(finduser.isPresent()) {
-            User newuser = finduser.get();
-            userResponseDto.setId(newuser.getId());
+        User user = new User();
+        user.setKakaoid(userDto.getKakaoId());
+        user.setNickname(userDto.getNickname());
+        user.setUsername(userDto.getUsername());
+        user.setUserage(userDto.getUserage());
+        user.setSbti(userDto.getSbti());
+        user.setProfileimage(userDto.getProfileimage());
+        if (userDto.isMale()) {
+            user.setGender(Gender.MALE);
         } else {
-            User user = new User();
-            user.setNickname(userDto.getNickname());
-            user.setUsername(userDto.getUsername());
-            user.setUserage(userDto.getUserage());
-            user.setSbti(userDto.getSbti());
-            user.setProfileimage(userDto.getProfileimage());
-            user.setToken(userDto.getToken());
-            if (userDto.isMale()) {
-                user.setGender(Gender.MALE);
-            } else {
-                user.setGender(Gender.FEMALE);
-            }
-            User savedUser = userDAO.insertUser(user);
-            userResponseDto.setId(savedUser.getId());
+            user.setGender(Gender.FEMALE);
         }
+        User savedUser = userDAO.insertUser(user);
+
+        userResponseDto.setUserIdx(savedUser.getId());
 
         return userResponseDto;
     }
 
     @Override
-    public UserResponseDto changeUserNickname(Long id, String nickname) throws  Exception {
-        User changedUser = userDAO.updateNickName(id, nickname);
-        UserResponseDto userResponseDto = new UserResponseDto();
-        userResponseDto.setId(changedUser.getId());
-
-        return userResponseDto;
+    public String changeUserNickname(Long id, String nickname) throws  Exception {
+        String returnstr = userDAO.updateNickName(id, nickname);
+        return returnstr;
     }
     @Override
     public UserResponseDto changeUserSBTI(Long id, String name) throws  Exception {
         User changedUser = userDAO.updateSBTI(id, name);
         UserResponseDto userResponseDto = new UserResponseDto();
-        userResponseDto.setId(changedUser.getId());
+        userResponseDto.setUserIdx(changedUser.getId());
 
         return userResponseDto;
     }
+    @Override
+    public String changeUserImg(Long id, String profileImg) throws Exception {
+        String returnstr = userDAO.updateImg(id, profileImg);
+        return returnstr;
+    }
+
     @Override
     public void deleteUser(Long id) throws Exception {
         userDAO.deleteUser(id);

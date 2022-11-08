@@ -1,6 +1,6 @@
-package hanzanDB.hanzan.data.dao.impl;
+package hanzanDB.hanzan.data.entity.dao.impl;
 
-import hanzanDB.hanzan.data.dao.FoodDAO;
+import hanzanDB.hanzan.data.entity.dao.FoodDAO;
 import hanzanDB.hanzan.data.entity.Food;
 import hanzanDB.hanzan.data.repository.FoodRepository;
 import org.springframework.beans.factory.annotation.Autowired;
