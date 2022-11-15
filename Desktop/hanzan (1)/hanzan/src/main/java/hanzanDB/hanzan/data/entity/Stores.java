@@ -24,13 +24,13 @@ public class Stores {
     @Column(name = "imgLink")
     private String imgLink;
 
-    @Column(name = "kakaoId")
+    @Column(name = "kakaoId", nullable = false)
     private String kakaoId;
 
     @ManyToMany
     @JoinTable(name = "stores_comb",
             joinColumns = @JoinColumn(name = "kakaoId"),
-            inverseJoinColumns = @JoinColumn(name = "Id")
+            inverseJoinColumns = @JoinColumn(name = "id")
     )
     private List<Combination> combinationList = new ArrayList<>();
 }

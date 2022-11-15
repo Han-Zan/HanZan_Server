@@ -3,7 +3,7 @@ package hanzanDB.hanzan.data.entity.dao.impl;
 import hanzanDB.hanzan.data.entity.dao.PreferredDAO;
 import hanzanDB.hanzan.data.entity.Preferred;
 import hanzanDB.hanzan.data.entity.Product;
-import hanzanDB.hanzan.data.entity.dto.Response.PreferredProdResponseDto;
+import hanzanDB.hanzan.data.entity.dto.Response.Preferred.PreferredProdResponseDto;
 import hanzanDB.hanzan.data.repository.PreferredRepository;
 import hanzanDB.hanzan.data.repository.ProductRepository;
 import hanzanDB.hanzan.data.repository.UserRepository;
@@ -59,5 +59,10 @@ public class PreferredDAOImpl implements PreferredDAO {
             throw new Exception();
         }
 
+    }
+
+    @Override
+    public Optional<Preferred> findByUserAndDrink(Long userIdx, Long drinkIdx) {
+        return preferredRepository.findByUseridxAndDrinks(userIdx, drinkIdx);
     }
 }

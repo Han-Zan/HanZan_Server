@@ -1,9 +1,8 @@
 package hanzanDB.hanzan.controller;
 
-import hanzanDB.hanzan.data.entity.dto.Response.StoresResponseDto;
+import hanzanDB.hanzan.data.entity.dto.Response.Store.StoresResponseDto;
 import hanzanDB.hanzan.data.entity.dto.StoresDto;
 import hanzanDB.hanzan.service.StoresService;
-import io.swagger.models.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,8 +19,8 @@ public class StoresController {
     }
 
     @PostMapping()
-    public ResponseEntity<String> insertStores(@RequestBody StoresDto stores) {
-        String returnstr = storesService.insertStores(stores);
+    public ResponseEntity<Long> insertStores(@RequestBody StoresDto stores) {
+        Long returnstr = storesService.insertStores(stores);
         return ResponseEntity.status(HttpStatus.OK).body(returnstr);
     }
 

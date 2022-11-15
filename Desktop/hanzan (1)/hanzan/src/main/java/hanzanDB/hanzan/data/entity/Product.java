@@ -3,6 +3,7 @@ package hanzanDB.hanzan.data.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="product")
@@ -27,15 +28,6 @@ public class Product {
     @Column(nullable = false, name = "drinkTag")
     private String tag;
 
-    @Column(nullable = true, name = "Aroma")
-    private String aroma;
-
-    @Column(nullable = true, name = "Taste")
-    private String taste;
-
-    @Column(nullable = true, name ="Finish")
-    private String finish;
-
     @Column(name = "sweet")
     private Integer sweet;
 
@@ -56,4 +48,11 @@ public class Product {
 
     @Column(name = "alcohol")
     private float alcohol;
+
+    @Column(name = "nation")
+    private String nation;
+
+    @Column(name = "detailCategory")
+    private String detailCategory;
+
 }

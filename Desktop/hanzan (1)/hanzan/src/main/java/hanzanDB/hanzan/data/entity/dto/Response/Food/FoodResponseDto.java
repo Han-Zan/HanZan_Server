@@ -1,9 +1,12 @@
-package hanzanDB.hanzan.data.entity.dto.Response;
+package hanzanDB.hanzan.data.entity.dto.Response.Food;
 
+import hanzanDB.hanzan.data.entity.Product;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @AllArgsConstructor
 @Getter
@@ -20,4 +23,5 @@ public class FoodResponseDto {
     private String tag;
     private String img;
     private Integer foodType;
+    private List<Product> bestComb;
 }

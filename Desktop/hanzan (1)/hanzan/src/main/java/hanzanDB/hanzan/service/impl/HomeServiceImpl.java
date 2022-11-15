@@ -1,7 +1,7 @@
 package hanzanDB.hanzan.service.impl;
 
 import hanzanDB.hanzan.data.entity.dao.HomeDAO;
-import hanzanDB.hanzan.data.entity.dto.Response.HomeResponseDto;
+import hanzanDB.hanzan.data.entity.dto.Response.Home.HomeResponseDto;
 import hanzanDB.hanzan.service.HomeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

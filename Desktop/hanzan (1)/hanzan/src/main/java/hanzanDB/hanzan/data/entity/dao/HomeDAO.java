@@ -1,6 +1,6 @@
 package hanzanDB.hanzan.data.entity.dao;
 
-import hanzanDB.hanzan.data.entity.dto.Response.HomeResponseDto;
+import hanzanDB.hanzan.data.entity.dto.Response.Home.HomeResponseDto;
 
 import java.util.List;
 

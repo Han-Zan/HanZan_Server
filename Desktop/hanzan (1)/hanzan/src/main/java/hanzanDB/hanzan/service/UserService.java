@@ -1,8 +1,8 @@
 package hanzanDB.hanzan.service;
 
-import hanzanDB.hanzan.data.entity.dto.Response.SelectionUserResponseDto;
+import hanzanDB.hanzan.data.entity.dto.Response.User.SelectionUserResponseDto;
 import hanzanDB.hanzan.data.entity.dto.UserDto;
-import hanzanDB.hanzan.data.entity.dto.Response.UserResponseDto;
+import hanzanDB.hanzan.data.entity.dto.Response.User.UserResponseDto;
 
 public interface UserService {
     SelectionUserResponseDto getUser(Long Id);

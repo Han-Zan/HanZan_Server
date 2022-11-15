@@ -5,15 +5,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
+import java.util.List;
 
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CombinationDto {
-    private Long did;
-    private Long fid;
-    private float rating;
-    private Integer score;
+@Getter
+@Setter
+public class CamPostDto {
+    private String mode;
+    private List<String> inputstring;
 }

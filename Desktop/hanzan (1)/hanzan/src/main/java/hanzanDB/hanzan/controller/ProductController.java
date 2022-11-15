@@ -3,8 +3,9 @@ package hanzanDB.hanzan.controller;
 import hanzanDB.hanzan.data.entity.Product;
 import hanzanDB.hanzan.data.entity.dto.Request.ChangeProductNameDto;
 import hanzanDB.hanzan.data.entity.dto.ProductDto;
-import hanzanDB.hanzan.data.entity.dto.Response.ProductResponseDto;
-import hanzanDB.hanzan.data.entity.dto.Response.ReturnDrinkResponseDto;
+import hanzanDB.hanzan.data.entity.dto.Response.Product.ProductDetailedResponseDto;
+import hanzanDB.hanzan.data.entity.dto.Response.Product.ProductResponseDto;
+import hanzanDB.hanzan.data.entity.dto.Response.Product.ReturnDrinkResponseDto;
 import hanzanDB.hanzan.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,8 +26,8 @@ public class ProductController {
     }
 
     @GetMapping()
-    public ResponseEntity<ProductResponseDto> getProduct(long number) {
-        ProductResponseDto productResponseDto = productService.getProduct(number);
+    public ResponseEntity<ProductDetailedResponseDto> getProduct(Long userIdx, Long drinkIdx) {
+        ProductDetailedResponseDto productResponseDto = productService.getProduct(userIdx, drinkIdx);
         return ResponseEntity.status(HttpStatus.OK).body(productResponseDto);
     }
     @GetMapping(value = "/selection")

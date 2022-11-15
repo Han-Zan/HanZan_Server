@@ -1,19 +1,17 @@
-package hanzanDB.hanzan.data.entity.dto;
+package hanzanDB.hanzan.data.entity.dto.Response.Recommandation;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CombinationDto {
-    private Long did;
-    private Long fid;
-    private float rating;
+public class RecommandationDto {
+    private Long combIdx;
     private Integer score;
+    private boolean isPrefer;
+    private float rating;
 }

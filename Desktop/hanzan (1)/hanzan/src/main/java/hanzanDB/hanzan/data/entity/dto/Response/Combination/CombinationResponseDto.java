@@ -1,4 +1,4 @@
-package hanzanDB.hanzan.data.entity.dto.Response;
+package hanzanDB.hanzan.data.entity.dto.Response.Combination;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,4 +17,5 @@ public class CombinationResponseDto {
     private String foodimg;
     private float rating;
     private Integer pnum;
+    private Integer combScore;
 }

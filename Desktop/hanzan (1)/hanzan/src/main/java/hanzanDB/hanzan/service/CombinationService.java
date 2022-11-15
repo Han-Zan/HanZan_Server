@@ -1,8 +1,7 @@
 package hanzanDB.hanzan.service;
 
-import hanzanDB.hanzan.data.entity.Combination;
 import hanzanDB.hanzan.data.entity.dto.CombinationDto;
-import hanzanDB.hanzan.data.entity.dto.Response.CombinationResponseDto;
+import hanzanDB.hanzan.data.entity.dto.Response.Combination.CombinationResponseDto;
 
 import java.util.List;
 

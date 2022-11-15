@@ -4,7 +4,9 @@ package hanzanDB.hanzan.data.entity.dao.impl;
 import hanzanDB.hanzan.data.entity.Preferred;
 import hanzanDB.hanzan.data.entity.dao.ProductDAO;
 import hanzanDB.hanzan.data.entity.Product;
-import hanzanDB.hanzan.data.entity.dto.Response.ReturnDrinkResponseDto;
+import hanzanDB.hanzan.data.entity.dto.Response.Product.ProductDetailedResponseDto;
+import hanzanDB.hanzan.data.entity.dto.Response.Product.ProductResponseDto;
+import hanzanDB.hanzan.data.entity.dto.Response.Product.ReturnDrinkResponseDto;
 import hanzanDB.hanzan.data.repository.PreferredRepository;
 import hanzanDB.hanzan.data.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,7 @@ import java.util.Optional;
 @Component
 public class ProductDAOImpl implements ProductDAO {
     private final ProductRepository productRepository;
+
     private final PreferredRepository preferredRepository;
     @Autowired
     public ProductDAOImpl(ProductRepository productRepository, PreferredRepository preferredRepository) {
@@ -37,9 +40,10 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public Product selectProduct(Long number) {
-        Product selectedProduct = productRepository.getById(number);
-        return selectedProduct;
+    public Product selectProduct(Long userIdx, Long drinkIdx) {
+        Optional<Preferred> preferred = preferredRepository.findByUseridxAndDrinks(userIdx, drinkIdx);
+        return productRepository.getReferenceById(drinkIdx);
+
     }
 
     @Override
@@ -91,6 +95,11 @@ public class ProductDAOImpl implements ProductDAO {
         }
         return returnDrinkResponseDtos;
 
+    }
+    @Override
+    public Product selectProductByname(String name) {
+        Optional<Product> product = productRepository.findByName(name);
+        return product.get();
     }
 
 

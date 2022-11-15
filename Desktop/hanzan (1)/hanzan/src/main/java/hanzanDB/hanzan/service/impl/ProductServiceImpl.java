@@ -1,11 +1,13 @@
 package hanzanDB.hanzan.service.impl;
 
 
+import hanzanDB.hanzan.data.entity.dao.PreferredDAO;
 import hanzanDB.hanzan.data.entity.dao.ProductDAO;
 import hanzanDB.hanzan.data.entity.dto.ProductDto;
-import hanzanDB.hanzan.data.entity.dto.Response.ProductResponseDto;
+import hanzanDB.hanzan.data.entity.dto.Response.Product.ProductDetailedResponseDto;
+import hanzanDB.hanzan.data.entity.dto.Response.Product.ProductResponseDto;
 import hanzanDB.hanzan.data.entity.Product;
-import hanzanDB.hanzan.data.entity.dto.Response.ReturnDrinkResponseDto;
+import hanzanDB.hanzan.data.entity.dto.Response.Product.ReturnDrinkResponseDto;
 import hanzanDB.hanzan.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,20 +18,20 @@ import java.util.List;
 @Service
 public class ProductServiceImpl implements ProductService {
     private final ProductDAO productDAO;
+    private final PreferredDAO preferredDAO;
     @Autowired
-    public ProductServiceImpl(ProductDAO productDAO) {
+    public ProductServiceImpl(ProductDAO productDAO, PreferredDAO preferredDAO, PreferredDAO preferredDAO1) {
         this.productDAO = productDAO;
+        this.preferredDAO = preferredDAO1;
     }
 
     @Override
-    public ProductResponseDto getProduct(Long number) {
-        Product product = productDAO.selectProduct(number);
-        ProductResponseDto productResponseDto = new ProductResponseDto();
+    public ProductDetailedResponseDto getProduct(Long userIdx, Long number) {
+
+        Product product = productDAO.selectProduct(userIdx, number);
+        ProductDetailedResponseDto productResponseDto = new ProductDetailedResponseDto();
         productResponseDto.setId(product.getId());
         productResponseDto.setName(product.getName());
-        productResponseDto.setAroma(product.getAroma());
-        productResponseDto.setTaste(product.getTaste());
-        productResponseDto.setFinish(product.getTaste());
         productResponseDto.setRating(product.getRating());
         productResponseDto.setCategory(product.getCategory());
         productResponseDto.setTag(product.getTag());
@@ -40,6 +42,15 @@ public class ProductServiceImpl implements ProductService {
         productResponseDto.setSour(product.getSour());
         productResponseDto.setImg(product.getImg());
         productResponseDto.setAlcohol(product.getAlcohol());
+        productResponseDto.setNation(product.getNation());
+        productResponseDto.setDetailedCategory(product.getDetailCategory());
+
+        var pref = preferredDAO.findByUserAndDrink(userIdx, number);
+        if(pref.isPresent())
+            productResponseDto.setIsPrefer(true);
+        else
+            productResponseDto.setIsPrefer(false);
+
         return productResponseDto;
     }
 
@@ -47,9 +58,6 @@ public class ProductServiceImpl implements ProductService {
     public ProductResponseDto saveProduct(ProductDto productDto) {
         Product product = new Product();
         product.setName(productDto.getName());
-        product.setAroma(productDto.getAroma());
-        product.setTaste(productDto.getTaste());
-        product.setFinish(productDto.getFinish());
         product.setCategory(productDto.getCategory());
         product.setRating(productDto.getRating());
         product.setTag(productDto.getTag());
@@ -60,6 +68,8 @@ public class ProductServiceImpl implements ProductService {
         product.setSparkle(productDto.getSparkle());
         product.setImg(productDto.getImg());
         product.setAlcohol(productDto.getAlcohol());
+        product.setDetailCategory(productDto.getDetailedCategory());
+        product.setNation(productDto.getNation());
         Product savedProduct = productDAO.insertProduct(product);
 
         ProductResponseDto productResponseDto = new ProductResponseDto();
@@ -67,9 +77,6 @@ public class ProductServiceImpl implements ProductService {
         productResponseDto.setName(savedProduct.getName());
         productResponseDto.setRating(savedProduct.getRating());
         productResponseDto.setCategory(savedProduct.getCategory());
-        productResponseDto.setAroma(savedProduct.getAroma());
-        productResponseDto.setTaste(savedProduct.getTaste());
-        productResponseDto.setFinish(savedProduct.getFinish());
         productResponseDto.setTag(savedProduct.getTag());
         productResponseDto.setSweet(savedProduct.getSweet());
         productResponseDto.setBitter(savedProduct.getBitter());
@@ -78,6 +85,8 @@ public class ProductServiceImpl implements ProductService {
         productResponseDto.setSparkle(savedProduct.getSparkle());
         productResponseDto.setImg(savedProduct.getImg());
         productResponseDto.setAlcohol(savedProduct.getAlcohol());
+        productResponseDto.setDetailedCategory(savedProduct.getDetailCategory());
+        productResponseDto.setNation(savedProduct.getNation());
         return productResponseDto;
     }
 
@@ -93,9 +102,6 @@ public class ProductServiceImpl implements ProductService {
         productResponseDto.setCategory(changedProduct.getCategory());
         productResponseDto.setRating(changedProduct.getRating());
         productResponseDto.setName(changedProduct.getName());
-        productResponseDto.setAroma(changedProduct.getAroma());
-        productResponseDto.setTaste(changedProduct.getTaste());
-        productResponseDto.setFinish(changedProduct.getFinish());
         productResponseDto.setTag(changedProduct.getTag());
         productResponseDto.setSweet(changedProduct.getSweet());
         productResponseDto.setBitter(changedProduct.getBitter());
@@ -104,6 +110,8 @@ public class ProductServiceImpl implements ProductService {
         productResponseDto.setSparkle(changedProduct.getSparkle());
         productResponseDto.setImg(changedProduct.getImg());
         productResponseDto.setAlcohol(changedProduct.getAlcohol());
+        productResponseDto.setNation(changedProduct.getNation());
+        productResponseDto.setDetailedCategory(changedProduct.getDetailCategory());
         return productResponseDto;
     }
 

@@ -1,10 +1,11 @@
 package hanzanDB.hanzan.data.entity.dao;
 
 import hanzanDB.hanzan.data.entity.Stores;
-import hanzanDB.hanzan.data.entity.dto.Response.StoresResponseDto;
+import hanzanDB.hanzan.data.entity.dto.Response.Store.StoresResponseDto;
+import org.apache.catalina.Store;
 
 public interface StoresDAO {
-    void insertStores(Stores stores);
+    Stores insertStores(Stores stores);
 
     StoresResponseDto getStores(String kakaoId) throws Exception;
 

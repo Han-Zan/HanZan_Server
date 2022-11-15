@@ -69,4 +69,11 @@ public class PreferredCombDAOImpl implements PreferredCombDAO {
             throw new Exception();
         }
     }
+    @Override
+    public boolean isIn(Long userId, Long combidx) {
+        Optional<Preferredcomb> selectedUser = preferredCombRepository.findByUidAndCombid(userId, combidx);
+        if(selectedUser.isPresent())
+            return true;
+        return false;
+    }
 }

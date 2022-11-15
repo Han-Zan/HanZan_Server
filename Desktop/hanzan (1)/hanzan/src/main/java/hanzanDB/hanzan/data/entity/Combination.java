@@ -28,4 +28,7 @@ public class Combination {
 
     @Column(nullable = false, name = "num_people")
     private Integer pnum;
+
+    @Column(nullable = true, name = "combScore")
+    private Integer score;
 }

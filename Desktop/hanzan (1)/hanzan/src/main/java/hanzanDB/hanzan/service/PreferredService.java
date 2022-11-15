@@ -1,9 +1,8 @@
 package hanzanDB.hanzan.service;
 
-import hanzanDB.hanzan.data.entity.Product;
 import hanzanDB.hanzan.data.entity.dto.PreferredDto;
-import hanzanDB.hanzan.data.entity.dto.Response.PreferredProdResponseDto;
-import hanzanDB.hanzan.data.entity.dto.Response.PreferredResponseDto;
+import hanzanDB.hanzan.data.entity.dto.Response.Preferred.PreferredProdResponseDto;
+import hanzanDB.hanzan.data.entity.dto.Response.Preferred.PreferredResponseDto;
 
 import java.util.List;
 

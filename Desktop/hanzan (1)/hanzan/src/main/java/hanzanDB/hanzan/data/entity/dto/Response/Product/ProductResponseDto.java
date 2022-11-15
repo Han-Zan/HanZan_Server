@@ -1,4 +1,4 @@
-package hanzanDB.hanzan.data.entity.dto.Response;
+package hanzanDB.hanzan.data.entity.dto.Response.Product;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,9 +12,6 @@ public class ProductResponseDto {
     private String name;
     private int category;
     private float rating;
-    private String aroma;
-    private String taste;
-    private String finish;
     private String tag;
     private Integer sweet;
     private Integer bitter;
@@ -23,5 +20,7 @@ public class ProductResponseDto {
     private Integer sour;
     private String img;
     private float alcohol;
+    private String nation;
+    private String detailedCategory;
     public ProductResponseDto() {}
 }

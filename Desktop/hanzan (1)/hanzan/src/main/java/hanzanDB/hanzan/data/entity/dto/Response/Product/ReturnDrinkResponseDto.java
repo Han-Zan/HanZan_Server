@@ -1,4 +1,4 @@
-package hanzanDB.hanzan.data.entity.dto.Response;
+package hanzanDB.hanzan.data.entity.dto.Response.Product;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

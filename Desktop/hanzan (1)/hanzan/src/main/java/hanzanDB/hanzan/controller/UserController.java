@@ -1,11 +1,9 @@
 package hanzanDB.hanzan.controller;
 
-import hanzanDB.hanzan.data.entity.dto.Request.ChangeUserImgNameDto;
-import hanzanDB.hanzan.data.entity.dto.Request.ChangeUserNickNameDto;
 import hanzanDB.hanzan.data.entity.dto.Request.ChangeUserSBTIDto;
-import hanzanDB.hanzan.data.entity.dto.Response.SelectionUserResponseDto;
+import hanzanDB.hanzan.data.entity.dto.Response.User.SelectionUserResponseDto;
 import hanzanDB.hanzan.data.entity.dto.UserDto;
-import hanzanDB.hanzan.data.entity.dto.Response.UserResponseDto;
+import hanzanDB.hanzan.data.entity.dto.Response.User.UserResponseDto;
 import hanzanDB.hanzan.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,7 +26,7 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.OK).body(userResponseDto);
     }
     @PostMapping("/authrole")
-    ResponseEntity<Long> postProduct(@RequestBody UserDto userDto) {
+    ResponseEntity<Long> postUserInfo(@RequestBody UserDto userDto) {
         UserResponseDto userResponseDto = userService.saveUser(userDto);
         Long userid = userResponseDto.getUserIdx();
         return ResponseEntity.status(HttpStatus.OK).body(userid);
@@ -49,7 +47,7 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.OK).body(userResponseDto);
     }
     @DeleteMapping()
-    public ResponseEntity<String> deleteProductName(Long userId) throws Exception {
+    public ResponseEntity<String> deleteUser(Long userId) throws Exception {
         userService.deleteUser(userId);
         return ResponseEntity.status(HttpStatus.OK).body("정상적 삭제");
     }

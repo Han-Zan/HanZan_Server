@@ -19,4 +19,5 @@ public class CombinationRequest {
     private Integer foodCategory;
     private float rating;
     private Integer pnum;
+    private Integer combScore;
 }

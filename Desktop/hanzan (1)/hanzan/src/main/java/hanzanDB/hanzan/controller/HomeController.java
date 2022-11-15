@@ -1,15 +1,13 @@
 package hanzanDB.hanzan.controller;
 
-import hanzanDB.hanzan.data.entity.dto.Response.HomeResponseDto;
-import hanzanDB.hanzan.data.entity.dto.Response.HomeUserResponse;
+import hanzanDB.hanzan.data.entity.dto.Response.Home.HomeResponseDto;
+import hanzanDB.hanzan.data.entity.dto.Response.Home.HomeUserResponse;
 import hanzanDB.hanzan.service.HomeService;
 import hanzanDB.hanzan.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

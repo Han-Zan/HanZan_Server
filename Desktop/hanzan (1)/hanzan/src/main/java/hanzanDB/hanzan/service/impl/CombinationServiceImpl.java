@@ -4,7 +4,7 @@ import hanzanDB.hanzan.data.entity.dao.CombinationDAO;
 import hanzanDB.hanzan.data.entity.Combination;
 import hanzanDB.hanzan.data.entity.dto.CombinationDto;
 import hanzanDB.hanzan.data.entity.dto.Request.CombinationRequest;
-import hanzanDB.hanzan.data.entity.dto.Response.CombinationResponseDto;
+import hanzanDB.hanzan.data.entity.dto.Response.Combination.CombinationResponseDto;
 import hanzanDB.hanzan.service.CombinationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +31,7 @@ public class CombinationServiceImpl implements CombinationService {
         combinationResponseDto.setDrinkimg(comb.getDrinkimg());
         combinationResponseDto.setFoodimg(comb.getFoodimg());
         combinationResponseDto.setPnum(comb.getPnum());
+        combinationResponseDto.setCombScore(comb.getCombScore());
 
 
         return combinationResponseDto;
@@ -47,6 +48,7 @@ public class CombinationServiceImpl implements CombinationService {
             combinationResponseDto.setDrinkimg(combinationRequest.getDrinkimg());
             combinationResponseDto.setFoodimg(combinationRequest.getFoodimg());
             combinationResponseDto.setPnum(combinationRequest.getPnum());
+            combinationResponseDto.setCombScore(combinationRequest.getCombScore());
             list.add(combinationResponseDto);
         }
         return list;
@@ -59,6 +61,7 @@ public class CombinationServiceImpl implements CombinationService {
         combination.setFid(combinationDto.getFid());
         combination.setRating(combinationDto.getRating());
         combination.setPnum(0);
+        combination.setScore(0);
         Combination comb = combinationDAO.insertCombination(combination);
     }
 

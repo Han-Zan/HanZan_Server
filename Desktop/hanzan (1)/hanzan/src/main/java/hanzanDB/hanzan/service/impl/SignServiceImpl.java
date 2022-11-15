@@ -2,7 +2,7 @@ package hanzanDB.hanzan.service.impl;
 
 import hanzanDB.hanzan.data.entity.dao.UserDAO;
 import hanzanDB.hanzan.data.entity.Gender;
-import hanzanDB.hanzan.data.entity.dto.Response.UserResponseDto;
+import hanzanDB.hanzan.data.entity.dto.Response.User.UserResponseDto;
 import hanzanDB.hanzan.data.entity.dto.UserDto;
 import hanzanDB.hanzan.data.repository.UserRepository;
 import hanzanDB.hanzan.securityutil.JwtTokenProvider;
@@ -68,6 +68,13 @@ public class SignServiceImpl implements SignService {
             UserResponseDto responseDto = new UserResponseDto();
             return responseDto;
         }
+    }
+    @Override
+    public Boolean nickNameCheck(String userNickname) {
+        Optional<User> user = userRepository.findByNickname(userNickname);
+        if(user.isPresent())
+            return true;
+        return false;
     }
 
 }

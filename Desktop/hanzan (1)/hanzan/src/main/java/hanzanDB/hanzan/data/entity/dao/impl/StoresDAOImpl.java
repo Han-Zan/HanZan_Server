@@ -3,12 +3,13 @@ package hanzanDB.hanzan.data.entity.dao.impl;
 import hanzanDB.hanzan.data.entity.Combination;
 import hanzanDB.hanzan.data.entity.Stores;
 import hanzanDB.hanzan.data.entity.dao.StoresDAO;
-import hanzanDB.hanzan.data.entity.dto.Response.CombinationResponseDto;
-import hanzanDB.hanzan.data.entity.dto.Response.StoresResponseDto;
+import hanzanDB.hanzan.data.entity.dto.Response.Combination.CombinationResponseDto;
+import hanzanDB.hanzan.data.entity.dto.Response.Store.StoresResponseDto;
 import hanzanDB.hanzan.data.repository.CombinationRepository;
 import hanzanDB.hanzan.data.repository.FoodRepository;
 import hanzanDB.hanzan.data.repository.ProductRepository;
 import hanzanDB.hanzan.data.repository.StoresRepository;
+import org.apache.catalina.Store;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -32,8 +33,16 @@ public class StoresDAOImpl implements StoresDAO {
     }
 
     @Override
-    public void insertStores(Stores stores) {
-        storesRepository.save(stores);
+    public Stores insertStores(Stores stores) {
+
+        Optional<Stores> store = storesRepository.findByKakaoId(stores.getKakaoId());
+        if(store.isPresent()) {
+            return store.get();
+        }
+        else {
+            Stores strs = storesRepository.save(stores);
+            return strs;
+        }
     }
     @Override
     public StoresResponseDto getStores(String kakaoId) throws Exception {

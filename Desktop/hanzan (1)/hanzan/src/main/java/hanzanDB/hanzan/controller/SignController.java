@@ -1,10 +1,9 @@
 package hanzanDB.hanzan.controller;
 
-import hanzanDB.hanzan.data.entity.dto.Response.UserResponseDto;
+import hanzanDB.hanzan.data.entity.dto.Response.User.UserResponseDto;
 import hanzanDB.hanzan.data.entity.dto.UserDto;
 import hanzanDB.hanzan.service.SignService;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,4 +28,10 @@ public class SignController {
         UserResponseDto returnuser = signService.signCheck(kakao_id);
         return ResponseEntity.status(HttpStatus.OK).body(returnuser);
     }
+    @PostMapping("/nickNameCheck")
+    public ResponseEntity<Boolean> NickNameCheck(String userNickname) {
+        Boolean isTrue = signService.nickNameCheck(userNickname);
+        return ResponseEntity.status(HttpStatus.OK).body(isTrue);
+    }
+
 }

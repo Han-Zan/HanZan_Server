@@ -1,8 +1,7 @@
 package hanzanDB.hanzan.controller;
 
-import hanzanDB.hanzan.data.entity.Combination;
 import hanzanDB.hanzan.data.entity.dto.CombinationDto;
-import hanzanDB.hanzan.data.entity.dto.Response.CombinationResponseDto;
+import hanzanDB.hanzan.data.entity.dto.Response.Combination.CombinationResponseDto;
 import hanzanDB.hanzan.service.CombinationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

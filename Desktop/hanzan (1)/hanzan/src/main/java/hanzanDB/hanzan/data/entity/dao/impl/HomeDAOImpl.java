@@ -3,7 +3,7 @@ package hanzanDB.hanzan.data.entity.dao.impl;
 import hanzanDB.hanzan.data.entity.dao.HomeDAO;
 import hanzanDB.hanzan.data.entity.Combination;
 import hanzanDB.hanzan.data.entity.Preferredcomb;
-import hanzanDB.hanzan.data.entity.dto.Response.HomeResponseDto;
+import hanzanDB.hanzan.data.entity.dto.Response.Home.HomeResponseDto;
 import hanzanDB.hanzan.data.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

@@ -1,26 +1,19 @@
-package hanzanDB.hanzan.data.entity.dto;
+package hanzanDB.hanzan.data.entity.dto.Response.Product;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.AllArgsConstructor;
-
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class ProductDto {
+@AllArgsConstructor
+public class ProductDetailedResponseDto {
+    private Long Id;
     private String name;
     private int category;
     private float rating;
-    private String aroma;
-    private String taste;
-    private String finish;
     private String tag;
     private Integer sweet;
     private Integer bitter;
@@ -29,7 +22,7 @@ public class ProductDto {
     private Integer sour;
     private String img;
     private float alcohol;
-    private String detailedCategory;
     private String nation;
-
+    private String detailedCategory;
+    private Boolean isPrefer;
 }

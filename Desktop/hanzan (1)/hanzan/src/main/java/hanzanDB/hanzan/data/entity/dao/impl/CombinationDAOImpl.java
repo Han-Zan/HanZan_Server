@@ -35,11 +35,12 @@ public class CombinationDAOImpl implements CombinationDAO {
         if(!newFood.isPresent() || !newDrink.isPresent()) {
             throw new IllegalArgumentException("음식 혹은 주류가 존재하지 않습니다.");
         }
-        if(combinationRepository.findByDidAndFid(comb.getDid(), comb.getFid()).isPresent()) {
-            throw new IllegalArgumentException("이미 존재하는 조합입니다.");
+        Optional<Combination> combi = combinationRepository.findByDidAndFid(comb.getDid(), comb.getFid());
+        if(combi.isPresent()) {
+            return combi.get();
         }
-        Combination combi = combinationRepository.save(comb);
-        return combi;
+        Combination newcombi = combinationRepository.save(comb);
+        return newcombi;
     }
     @Override
     public CombinationRequest getCombination (Long id) {
@@ -52,6 +53,7 @@ public class CombinationDAOImpl implements CombinationDAO {
         combreq.setDrinkimg(productRepository.getReferenceById(combi.getDid()).getImg());
         combreq.setRating(combi.getRating());
         combreq.setPnum(combi.getPnum());
+        combreq.setCombScore(combi.getScore());
         return combreq;
     }
     @Override
@@ -63,8 +65,9 @@ public class CombinationDAOImpl implements CombinationDAO {
             combreq.setDrinkname(productRepository.getReferenceById(comb.getDid()).getName());
             combreq.setFoodname(foodRepository.getReferenceById(comb.getFid()).getName());
             combreq.setDrinkimg(productRepository.getReferenceById(comb.getDid()).getImg());
-            combreq.setFoodimg(foodRepository.getReferenceById(comb.getDid()).getImg());
+            combreq.setFoodimg(foodRepository.getReferenceById(comb.getFid()).getImg());
             combreq.setPnum(comb.getPnum());
+            combreq.setCombScore(comb.getScore());
             newlist.add(combreq);
         }
         return newlist;

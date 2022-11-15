@@ -1,11 +1,13 @@
 package hanzanDB.hanzan.data.entity.dto;
 
+import hanzanDB.hanzan.data.entity.Product;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;
+import java.util.List;
 
 @Getter
 @Setter
