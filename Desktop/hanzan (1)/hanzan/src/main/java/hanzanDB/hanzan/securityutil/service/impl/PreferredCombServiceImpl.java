@@ -1,11 +1,11 @@
-package hanzanDB.hanzan.service.impl;
+package hanzanDB.hanzan.securityutil.service.impl;
 
 import hanzanDB.hanzan.data.entity.dao.CombinationDAO;
 import hanzanDB.hanzan.data.entity.dao.PreferredCombDAO;
 import hanzanDB.hanzan.data.entity.Preferredcomb;
 import hanzanDB.hanzan.data.entity.dto.PreferredCombDto;
 import hanzanDB.hanzan.data.entity.dto.Request.CombinationRequest;
-import hanzanDB.hanzan.service.PreferredCombService;
+import hanzanDB.hanzan.securityutil.service.PreferredCombService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

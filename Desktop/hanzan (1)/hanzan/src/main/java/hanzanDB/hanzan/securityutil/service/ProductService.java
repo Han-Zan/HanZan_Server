@@ -1,4 +1,4 @@
-package hanzanDB.hanzan.service;
+package hanzanDB.hanzan.securityutil.service;
 
 import hanzanDB.hanzan.data.entity.Product;
 import hanzanDB.hanzan.data.entity.dto.ProductDto;

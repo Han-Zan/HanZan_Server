@@ -2,7 +2,7 @@ package hanzanDB.hanzan.controller;
 
 import hanzanDB.hanzan.data.entity.dto.Response.User.UserResponseDto;
 import hanzanDB.hanzan.data.entity.dto.UserDto;
-import hanzanDB.hanzan.service.SignService;
+import hanzanDB.hanzan.securityutil.service.SignService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

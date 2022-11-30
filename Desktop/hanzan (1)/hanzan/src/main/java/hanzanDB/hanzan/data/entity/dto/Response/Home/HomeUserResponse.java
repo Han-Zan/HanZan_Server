@@ -13,5 +13,6 @@ import java.util.List;
 @AllArgsConstructor
 public class HomeUserResponse {
     private String name;
+    private String sbtiString;
     private List<HomeResponseDto> lists;
 }

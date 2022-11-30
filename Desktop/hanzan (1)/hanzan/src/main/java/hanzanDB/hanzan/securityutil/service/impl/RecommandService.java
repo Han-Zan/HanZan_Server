@@ -1,4 +1,4 @@
-package hanzanDB.hanzan.service.impl;
+package hanzanDB.hanzan.securityutil.service.impl;
 
 import hanzanDB.hanzan.data.entity.Combination;
 import hanzanDB.hanzan.data.entity.Food;
@@ -8,14 +8,22 @@ import hanzanDB.hanzan.data.entity.dao.FoodDAO;
 import hanzanDB.hanzan.data.entity.dao.PreferredCombDAO;
 import hanzanDB.hanzan.data.entity.dao.ProductDAO;
 import hanzanDB.hanzan.data.entity.dto.Request.CombinationRequest;
+import hanzanDB.hanzan.data.entity.dto.Request.RecommandationRequest;
+import hanzanDB.hanzan.data.entity.dto.Response.Recommandation.RecommandListDto;
 import hanzanDB.hanzan.data.entity.dto.Response.Recommandation.RecommandationDto;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class RecommandService {
+    protected final Log logger = LogFactory.getLog(getClass());
     private final CombinationDAO combinationDAO;
     private final ProductDAO productDAO;
     private final FoodDAO foodDAO;
@@ -29,6 +37,27 @@ public class RecommandService {
         this.preferredCombDAO = preferredCombDAO;
     }
 
+    public List<RecommandListDto> recommandanations(RecommandationRequest req) throws Exception {
+        List<RecommandListDto> listDto = new ArrayList<>();
+        for(String foodName : req.getFoodNames()) {
+            for(String drinkName : req.getDrinkNames()) {
+                RecommandationDto rec = recommand(req.getUserIdx(), foodName, drinkName);
+                RecommandListDto reqlist = new RecommandListDto();
+                reqlist.setCombId(rec.getCombIdx());
+                reqlist.setFoodImg(combinationDAO.getCombination(req.getUserIdx(), rec.getCombIdx()).getFoodimg());
+                reqlist.setDrinkImg(combinationDAO.getCombination(req.getUserIdx(), rec.getCombIdx()).getDrinkimg());
+                reqlist.setFoodName(combinationDAO.getCombination(req.getUserIdx(), rec.getCombIdx()).getFoodname());
+                reqlist.setDrinkName(combinationDAO.getCombination(req.getUserIdx(), rec.getCombIdx()).getDrinkname());
+                reqlist.setCombScore(combinationDAO.getCombination(req.getUserIdx(), rec.getCombIdx()).getCombScore());
+                reqlist.setHighlyRec(false);
+                listDto.add(reqlist);
+            }
+
+
+        }
+        listDto = combinationDAO.returnMaxCombination(req.getUserIdx(), listDto);
+        return listDto;
+    }
     public RecommandationDto recommand(Long userId, String foodName, String drinkName) throws Exception{
         Food foods = foodDAO.getFoodByName(foodName);
         Product prod = productDAO.selectProductByname(drinkName);
@@ -40,8 +69,10 @@ public class RecommandService {
         combination.setScore(recommandationSet(foods, prod).intValue());
         Combination combi = combinationDAO.insertCombination(combination);
 
+        Integer Addratio = combi.getScore() + (Integer)((combi.getPnum() * 50 / combinationDAO.GetAllPnum()));
+
         RecommandationDto recommandationDto = new RecommandationDto();
-        recommandationDto.setScore(combi.getScore());
+        recommandationDto.setScore(Addratio);
         recommandationDto.setRating(combi.getRating());
         recommandationDto.setCombIdx(combi.getId());
         recommandationDto.setPrefer(preferredCombDAO.isIn(userId, combi.getId()));

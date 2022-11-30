@@ -2,7 +2,7 @@ package hanzanDB.hanzan.controller;
 
 import hanzanDB.hanzan.data.entity.dto.PreferredCombDto;
 import hanzanDB.hanzan.data.entity.dto.Request.CombinationRequest;
-import hanzanDB.hanzan.service.PreferredCombService;
+import hanzanDB.hanzan.securityutil.service.PreferredCombService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

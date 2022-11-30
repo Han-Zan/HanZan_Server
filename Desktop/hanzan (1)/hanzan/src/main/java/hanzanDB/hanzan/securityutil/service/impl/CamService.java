@@ -1,4 +1,4 @@
-package hanzanDB.hanzan.service.impl;
+package hanzanDB.hanzan.securityutil.service.impl;
 
 import com.nimbusds.jose.shaded.json.JSONObject;
 import hanzanDB.hanzan.data.entity.Food;
@@ -59,7 +59,7 @@ public class CamService {
                 while ((inputLine = in.readLine()) != null) {
                     outResult.append(inputLine);
                 }
-                if(outResult.toString() != null &&
+                if(!outResult.toString().contains("None") &&
                         !returnStr.contains(outResult.toString())) {
                     returnStr.add(outResult.toString());
                 }
@@ -98,12 +98,14 @@ public class CamService {
                 while ((inputLine = in.readLine()) != null) {
                     outResult.append(inputLine);
                 }
-                Product product = productDAO.selectProductByname(outResult.toString());
-                ProductCamResponseDto productCamResponseDto = new ProductCamResponseDto();
-                productCamResponseDto.setName(product.getName());
-                productCamResponseDto.setDrinkIdx(product.getId());
-                returnStr.add(productCamResponseDto);
-                conn.disconnect();
+                if(!outResult.toString().contains("None")) {
+                    Product product = productDAO.selectProductByname(outResult.toString());
+                    ProductCamResponseDto productCamResponseDto = new ProductCamResponseDto();
+                    productCamResponseDto.setName(product.getName());
+                    productCamResponseDto.setDrinkIdx(product.getId());
+                    returnStr.add(productCamResponseDto);
+                    conn.disconnect();
+                }
             }
 
 
@@ -138,12 +140,14 @@ public class CamService {
                 while ((inputLine = in.readLine()) != null) {
                     outResult.append(inputLine);
                 }
-                Food food = foodDAO.getFoodByName(outResult.toString());
-                FoodCamResponseDto foodCamResponseDto = new FoodCamResponseDto();
-                foodCamResponseDto.setName(food.getName());
-                foodCamResponseDto.setFoodIdx(food.getId());
-                returnStr.add(foodCamResponseDto);
-                conn.disconnect();
+                if(!outResult.toString().contains("None")) {
+                    Food food = foodDAO.getFoodByName(outResult.toString());
+                    FoodCamResponseDto foodCamResponseDto = new FoodCamResponseDto();
+                    foodCamResponseDto.setName(food.getName());
+                    foodCamResponseDto.setFoodIdx(food.getId());
+                    returnStr.add(foodCamResponseDto);
+                    conn.disconnect();
+                }
             }
 
 

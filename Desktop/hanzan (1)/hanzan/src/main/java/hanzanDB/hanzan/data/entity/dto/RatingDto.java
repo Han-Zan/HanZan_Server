@@ -1,23 +1,22 @@
 package hanzanDB.hanzan.data.entity.dto;
 
-import hanzanDB.hanzan.data.entity.Combination;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.Column;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class StoresDto {
+public class RatingDto {
 
-    private String storeName;
+    private Long combIdx;
 
-    private String kakaoId;
+    private Long userIdx;
+
+    private Float rating;
 
 }

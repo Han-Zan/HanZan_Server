@@ -44,5 +44,11 @@ public class User {
     @Enumerated(value = EnumType.STRING)
     private Gender gender;
 
+    @ManyToMany
+    @JoinTable(name = "userHistory",
+            joinColumns = @JoinColumn(name = "id"),
+            inverseJoinColumns = @JoinColumn(name = "fid")
+    )
+    private List<Food> foodList = new ArrayList<>();
 }
 

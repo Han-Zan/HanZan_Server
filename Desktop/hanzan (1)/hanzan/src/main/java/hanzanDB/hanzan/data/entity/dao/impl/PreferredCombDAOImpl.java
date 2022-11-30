@@ -43,6 +43,8 @@ public class PreferredCombDAOImpl implements PreferredCombDAO {
             combinationRequest.setFoodimg(foodRepository.getReferenceById(combi.getFid()).getImg());
             combinationRequest.setPnum(combi.getPnum());
             combinationRequest.setRating(combi.getRating());
+            combinationRequest.setCombScore(combi.getScore());
+            combinationRequest.setIsPrefer(true);
             list.add(combinationRequest);
         }
         return list;

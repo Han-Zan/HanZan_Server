@@ -2,7 +2,7 @@ package hanzanDB.hanzan.controller;
 
 import hanzanDB.hanzan.data.entity.dto.FoodDto;
 import hanzanDB.hanzan.data.entity.dto.Response.Food.FoodResponseDto;
-import hanzanDB.hanzan.service.FoodService;
+import hanzanDB.hanzan.securityutil.service.FoodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

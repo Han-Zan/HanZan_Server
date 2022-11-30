@@ -1,10 +1,9 @@
 package hanzanDB.hanzan.controller;
 
-import hanzanDB.hanzan.data.entity.Product;
 import hanzanDB.hanzan.data.entity.dto.CamPostDto;
 import hanzanDB.hanzan.data.entity.dto.Response.Cam.FoodCamResponseDto;
 import hanzanDB.hanzan.data.entity.dto.Response.Cam.ProductCamResponseDto;
-import hanzanDB.hanzan.service.impl.CamService;
+import hanzanDB.hanzan.securityutil.service.impl.CamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

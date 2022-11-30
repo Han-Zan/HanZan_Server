@@ -1,11 +1,11 @@
-package hanzanDB.hanzan.service.impl;
+package hanzanDB.hanzan.securityutil.service.impl;
 
 import hanzanDB.hanzan.data.entity.dao.PreferredDAO;
 import hanzanDB.hanzan.data.entity.Preferred;
 import hanzanDB.hanzan.data.entity.dto.PreferredDto;
 import hanzanDB.hanzan.data.entity.dto.Response.Preferred.PreferredProdResponseDto;
 import hanzanDB.hanzan.data.entity.dto.Response.Preferred.PreferredResponseDto;
-import hanzanDB.hanzan.service.PreferredService;
+import hanzanDB.hanzan.securityutil.service.PreferredService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

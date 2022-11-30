@@ -1,15 +1,17 @@
 package hanzanDB.hanzan.data.entity.dto.Request;
 
-import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class ChangeUserImgNameDto {
+public class RecommandationRequest {
     private Long userIdx;
-    private String newImg;
+    private List<String> foodNames;
+    private List<String> drinkNames;
 }

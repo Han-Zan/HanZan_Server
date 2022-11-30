@@ -72,7 +72,7 @@ public class WebSecurityConfig  {
                         "/configuration/ui",
                         "/configuration/security",
                         "/swagger-ui.html",
-                        "/webjars/**").permitAll()
+                        "/webjars/**", "/push").permitAll()
                 .antMatchers("/auth/**").permitAll()
                 .anyRequest().authenticated()
 

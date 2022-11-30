@@ -1,4 +1,4 @@
-package hanzanDB.hanzan.service.impl;
+package hanzanDB.hanzan.securityutil.service.impl;
 
 import hanzanDB.hanzan.data.entity.dao.UserDAO;
 import hanzanDB.hanzan.data.entity.Gender;
@@ -6,7 +6,7 @@ import hanzanDB.hanzan.data.entity.dto.Response.User.UserResponseDto;
 import hanzanDB.hanzan.data.entity.dto.UserDto;
 import hanzanDB.hanzan.data.repository.UserRepository;
 import hanzanDB.hanzan.securityutil.JwtTokenProvider;
-import hanzanDB.hanzan.service.SignService;
+import hanzanDB.hanzan.securityutil.service.SignService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import hanzanDB.hanzan.data.entity.User;

@@ -1,19 +1,29 @@
 package hanzanDB.hanzan.data.entity.dao.impl;
 
+import hanzanDB.hanzan.data.entity.Combination;
+import hanzanDB.hanzan.data.entity.Food;
 import hanzanDB.hanzan.data.entity.dao.UserDAO;
 import hanzanDB.hanzan.data.entity.User;
+import hanzanDB.hanzan.data.repository.CombinationRepository;
+import hanzanDB.hanzan.data.repository.FoodRepository;
 import hanzanDB.hanzan.data.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 @Component
 public class UserDAOImpl implements UserDAO {
     private final UserRepository userRepository;
+    private final FoodRepository foodRepository;
+    private final CombinationRepository combinationRepository;
     @Autowired
-    public UserDAOImpl(UserRepository userRepository) {
+    public UserDAOImpl(UserRepository userRepository, FoodRepository foodRepository, CombinationRepository combinationRepository) {
+        this.foodRepository = foodRepository;
         this.userRepository = userRepository;
+
+        this.combinationRepository = combinationRepository;
     }
     @Override
     public User insertUser(User user) {
@@ -74,6 +84,20 @@ public class UserDAOImpl implements UserDAO {
             userRepository.delete(user);
         } else {
             throw new Exception();
+        }
+    }
+
+    @Override
+    public void insertFood(Long userId, Long combId) throws Exception {
+        Optional<User> selectedUser = userRepository.findById(userId);
+        Optional<Combination> combination = combinationRepository.findById(combId);
+        if(selectedUser.isPresent() && combination.isPresent()) {
+            Optional<Food> selectedfood  = foodRepository.findById(combination.get().getFid());
+            User user = selectedUser.get();
+            List<Food> foodList = user.getFoodList();
+            foodList.add(selectedfood.get());
+            user.setFoodList(foodList);
+            userRepository.save(user);
         }
     }
 }

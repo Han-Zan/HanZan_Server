@@ -20,4 +20,5 @@ public class CombinationRequest {
     private float rating;
     private Integer pnum;
     private Integer combScore;
+    private Boolean isPrefer;
 }

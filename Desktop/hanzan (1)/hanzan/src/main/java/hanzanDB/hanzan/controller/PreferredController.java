@@ -3,7 +3,7 @@ package hanzanDB.hanzan.controller;
 import hanzanDB.hanzan.data.entity.dto.PreferredDto;
 import hanzanDB.hanzan.data.entity.dto.Response.Preferred.PreferredProdResponseDto;
 import hanzanDB.hanzan.data.entity.dto.Response.Preferred.PreferredResponseDto;
-import hanzanDB.hanzan.service.PreferredService;
+import hanzanDB.hanzan.securityutil.service.PreferredService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +34,6 @@ public class PreferredController {
     @DeleteMapping()
     public ResponseEntity<String> deleteProductName(Long id, Long drinkid) throws  Exception {
         preferredService.delete(id, drinkid);
-
         return ResponseEntity.status(HttpStatus.OK).body("정상적 삭제");
     }
 

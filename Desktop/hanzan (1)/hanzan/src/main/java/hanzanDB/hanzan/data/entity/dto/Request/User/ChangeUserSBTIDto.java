@@ -1,4 +1,4 @@
-package hanzanDB.hanzan.data.entity.dto.Request;
+package hanzanDB.hanzan.data.entity.dto.Request.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

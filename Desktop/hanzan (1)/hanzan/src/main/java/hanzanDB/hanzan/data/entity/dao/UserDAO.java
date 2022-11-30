@@ -11,5 +11,7 @@ public interface UserDAO {
 
     String updateImg(Long userId, String image) throws Exception;
     User updateSBTI(Long number, String name) throws Exception;
+
+    void insertFood(Long userId, Long foodId) throws Exception;
     void deleteUser(Long number) throws Exception;
 }

@@ -16,6 +16,9 @@ public class CombinationResponseDto {
     private String drinkimg;
     private String foodimg;
     private float rating;
+    private Integer drinkCategory;
+    private Integer foodCategory;
     private Integer pnum;
     private Integer combScore;
+    private Boolean isPrefer;
 }

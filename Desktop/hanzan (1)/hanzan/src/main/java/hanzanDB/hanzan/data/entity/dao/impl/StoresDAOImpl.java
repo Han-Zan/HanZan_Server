@@ -91,4 +91,14 @@ public class StoresDAOImpl implements StoresDAO {
         }
 
     }
+
+    @Override
+    public void insertStoresImage(String kakaoIdx, String imgLink) throws Exception {
+        Optional<Stores> stores = storesRepository.findByKakaoId(kakaoIdx);
+        if(stores.isPresent()) {
+            Stores getStores = stores.get();
+            getStores.setImgLink(imgLink);
+            storesRepository.save(getStores);
+        }
+    }
 }

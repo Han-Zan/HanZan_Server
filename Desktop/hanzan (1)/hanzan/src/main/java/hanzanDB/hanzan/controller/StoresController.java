@@ -2,7 +2,7 @@ package hanzanDB.hanzan.controller;
 
 import hanzanDB.hanzan.data.entity.dto.Response.Store.StoresResponseDto;
 import hanzanDB.hanzan.data.entity.dto.StoresDto;
-import hanzanDB.hanzan.service.StoresService;
+import hanzanDB.hanzan.securityutil.service.StoresService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,9 +30,15 @@ public class StoresController {
         return ResponseEntity.status(HttpStatus.OK).body(storesResponseDto);
     }
 
-    @PutMapping()
+    @PutMapping("/comb")
     public ResponseEntity<String> updateCombination(String kakaoIdx, Long combIdx) throws Exception {
         String returnstr = storesService.insertStoresCombination(kakaoIdx, combIdx);
+        return ResponseEntity.status(HttpStatus.OK).body(returnstr);
+    }
+
+    @PutMapping("/img")
+    public ResponseEntity<String> updateImgLink(String kakaoIdx, String imgLink) throws Exception {
+        String returnstr = storesService.insertStoresImage(kakaoIdx, imgLink);
         return ResponseEntity.status(HttpStatus.OK).body(returnstr);
     }
 

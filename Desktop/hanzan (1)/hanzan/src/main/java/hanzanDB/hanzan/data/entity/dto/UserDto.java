@@ -18,4 +18,5 @@ public class UserDto {
     private String profileimage;
     private Long kakaoId;
     private boolean isMale = true;
+
 }

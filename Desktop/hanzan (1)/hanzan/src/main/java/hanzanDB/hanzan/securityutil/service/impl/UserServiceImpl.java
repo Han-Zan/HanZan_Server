@@ -1,4 +1,4 @@
-package hanzanDB.hanzan.service.impl;
+package hanzanDB.hanzan.securityutil.service.impl;
 
 import hanzanDB.hanzan.data.entity.dao.UserDAO;
 import hanzanDB.hanzan.data.entity.Gender;
@@ -6,7 +6,7 @@ import hanzanDB.hanzan.data.entity.User;
 import hanzanDB.hanzan.data.entity.dto.Response.User.SelectionUserResponseDto;
 import hanzanDB.hanzan.data.entity.dto.UserDto;
 import hanzanDB.hanzan.data.entity.dto.Response.User.UserResponseDto;
-import hanzanDB.hanzan.service.UserService;
+import hanzanDB.hanzan.securityutil.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -79,5 +79,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUser(Long id) throws Exception {
         userDAO.deleteUser(id);
+    }
+
+    @Override
+    public String insertFood(Long userId, Long combId) throws Exception {
+        userDAO.insertFood(userId, combId);
+        return "저장";
     }
 }

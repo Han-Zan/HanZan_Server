@@ -1,4 +1,4 @@
-package hanzanDB.hanzan.service;
+package hanzanDB.hanzan.securityutil.service;
 
 import hanzanDB.hanzan.data.entity.dto.CombinationDto;
 import hanzanDB.hanzan.data.entity.dto.Response.Combination.CombinationResponseDto;
@@ -6,7 +6,7 @@ import hanzanDB.hanzan.data.entity.dto.Response.Combination.CombinationResponseD
 import java.util.List;
 
 public interface CombinationService {
-    CombinationResponseDto getCombination(Long id);
-    List<CombinationResponseDto> listAllCombination();
+    CombinationResponseDto getCombination(Long userId, Long combId);
+    List<CombinationResponseDto> listAllCombination(Long userId);
     void saveCombination(CombinationDto combinationDto) throws Exception;
 }

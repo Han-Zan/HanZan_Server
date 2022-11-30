@@ -1,11 +1,11 @@
-package hanzanDB.hanzan.service.impl;
+package hanzanDB.hanzan.securityutil.service.impl;
 
 import hanzanDB.hanzan.data.entity.dao.CombinationDAO;
 import hanzanDB.hanzan.data.entity.Combination;
 import hanzanDB.hanzan.data.entity.dto.CombinationDto;
 import hanzanDB.hanzan.data.entity.dto.Request.CombinationRequest;
 import hanzanDB.hanzan.data.entity.dto.Response.Combination.CombinationResponseDto;
-import hanzanDB.hanzan.service.CombinationService;
+import hanzanDB.hanzan.securityutil.service.CombinationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,8 +21,8 @@ public class CombinationServiceImpl implements CombinationService {
         this.combinationDAO = combinationDAO;
     }
     @Override
-    public CombinationResponseDto getCombination(Long id) {
-        CombinationRequest comb = combinationDAO.getCombination(id);
+    public CombinationResponseDto getCombination(Long userId, Long combId) {
+        CombinationRequest comb = combinationDAO.getCombination(userId, combId);
         CombinationResponseDto combinationResponseDto = new CombinationResponseDto();
         combinationResponseDto.setId(comb.getId());
         combinationResponseDto.setRating(comb.getRating());
@@ -32,14 +32,17 @@ public class CombinationServiceImpl implements CombinationService {
         combinationResponseDto.setFoodimg(comb.getFoodimg());
         combinationResponseDto.setPnum(comb.getPnum());
         combinationResponseDto.setCombScore(comb.getCombScore());
+        combinationResponseDto.setIsPrefer(comb.getIsPrefer());
+        combinationResponseDto.setDrinkCategory(comb.getDrinkCategory());
+        combinationResponseDto.setFoodCategory(comb.getFoodCategory());
 
 
         return combinationResponseDto;
     }
     @Override
-    public List<CombinationResponseDto> listAllCombination() {
+    public List<CombinationResponseDto> listAllCombination(Long userId) {
         List<CombinationResponseDto> list = new ArrayList<>();
-        for(CombinationRequest combinationRequest : combinationDAO.listAllComb()) {
+        for(CombinationRequest combinationRequest : combinationDAO.listAllComb(userId)) {
             CombinationResponseDto combinationResponseDto = new CombinationResponseDto();
             combinationResponseDto.setId(combinationRequest.getId());
             combinationResponseDto.setDrinkname(combinationRequest.getDrinkname());
@@ -49,6 +52,9 @@ public class CombinationServiceImpl implements CombinationService {
             combinationResponseDto.setFoodimg(combinationRequest.getFoodimg());
             combinationResponseDto.setPnum(combinationRequest.getPnum());
             combinationResponseDto.setCombScore(combinationRequest.getCombScore());
+            combinationResponseDto.setIsPrefer(combinationRequest.getIsPrefer());
+            combinationResponseDto.setFoodCategory(combinationRequest.getFoodCategory());
+            combinationResponseDto.setDrinkCategory(combinationRequest.getDrinkCategory());
             list.add(combinationResponseDto);
         }
         return list;

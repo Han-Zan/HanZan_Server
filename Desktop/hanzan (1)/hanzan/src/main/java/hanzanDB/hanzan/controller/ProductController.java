@@ -6,7 +6,7 @@ import hanzanDB.hanzan.data.entity.dto.ProductDto;
 import hanzanDB.hanzan.data.entity.dto.Response.Product.ProductDetailedResponseDto;
 import hanzanDB.hanzan.data.entity.dto.Response.Product.ProductResponseDto;
 import hanzanDB.hanzan.data.entity.dto.Response.Product.ReturnDrinkResponseDto;
-import hanzanDB.hanzan.service.ProductService;
+import hanzanDB.hanzan.securityutil.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

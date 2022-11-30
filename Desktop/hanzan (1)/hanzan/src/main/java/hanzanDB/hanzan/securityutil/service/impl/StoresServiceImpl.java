@@ -1,10 +1,10 @@
-package hanzanDB.hanzan.service.impl;
+package hanzanDB.hanzan.securityutil.service.impl;
 
 import hanzanDB.hanzan.data.entity.Stores;
 import hanzanDB.hanzan.data.entity.dao.StoresDAO;
 import hanzanDB.hanzan.data.entity.dto.Response.Store.StoresResponseDto;
 import hanzanDB.hanzan.data.entity.dto.StoresDto;
-import hanzanDB.hanzan.service.StoresService;
+import hanzanDB.hanzan.securityutil.service.StoresService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,8 +21,6 @@ public class StoresServiceImpl implements StoresService {
         Stores store = new Stores();
         store.setStoreName(stores.getStoreName());
         store.setKakaoId(stores.getKakaoId());
-        store.setImgLink(stores.getImgLink());
-
         Stores strs = storesDAO.insertStores(store);
         return strs.getIdx();
     }
@@ -38,4 +36,10 @@ public class StoresServiceImpl implements StoresService {
         storesDAO.insertStoresCombination(kakaoIdx, combidx);
         return "정상적 저장";
     }
+    @Override
+    public String insertStoresImage(String kakaoIdx, String imgLink) throws Exception {
+        storesDAO.insertStoresImage(kakaoIdx, imgLink);
+        return "정상적 저장";
+    }
+
 }

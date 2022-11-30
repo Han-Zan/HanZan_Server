@@ -2,8 +2,9 @@ package hanzanDB.hanzan.controller;
 
 import hanzanDB.hanzan.data.entity.dto.Response.Home.HomeResponseDto;
 import hanzanDB.hanzan.data.entity.dto.Response.Home.HomeUserResponse;
-import hanzanDB.hanzan.service.HomeService;
-import hanzanDB.hanzan.service.UserService;
+import hanzanDB.hanzan.data.entity.dto.Response.User.SelectionUserResponseDto;
+import hanzanDB.hanzan.securityutil.service.HomeService;
+import hanzanDB.hanzan.securityutil.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,7 +31,8 @@ public class HomeController {
         List<HomeResponseDto> homeResponseDtos = homeService.returnTop3(uid);
         /*HttpHeaders headers = new HttpHeaders();
         headers.add("User_Auth", userService.getUser(uid).getToken());*/
-        HomeUserResponse homeUserResponse = new HomeUserResponse(userService.getUser(uid).getNickname(),homeResponseDtos);
+        SelectionUserResponseDto user = userService.getUser(uid);
+        HomeUserResponse homeUserResponse = new HomeUserResponse(user.getNickname(), user.getSbti() ,homeResponseDtos);
         return ResponseEntity.status(HttpStatus.OK).body(homeUserResponse);
     }
 }
