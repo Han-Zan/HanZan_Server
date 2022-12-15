@@ -28,9 +28,11 @@
 - AWS MariaDB를 이용하였으며 EC2 컴퓨팅을 이용하여 리눅스 서버에 배포를 완료하였습니다.
 
 ### 1. UserController
-    - 사용자에 관한 정보를 관리를 하는 API 입니다.
 
-        <p align="start">
+- 사용자에 관한 정보를 관리를 하는 API 입니다.
+
+
+<p align="start">
           <img width="900" alt="image" src="https://user-images.githubusercontent.com/20681491/207852470-9d178977-b1c4-4286-9c9d-88cc27892845.png">
         </p>
 
@@ -50,7 +52,8 @@
     - (임시) insertfood : 사용자가 먹었던 음식에 대해서 저장합니다. (미사용)
 
 ### 2. ProductController
-    - 주류 품목에 관한 정보를 관리합니다.
+
+- 주류 품목에 관한 정보를 관리합니다.
 
 <p align="start">
           <img width="900" alt="image" src="https://user-images.githubusercontent.com/20681491/207852470-9d178977-b1c4-4286-9c9d-88cc27892845.png">
@@ -71,7 +74,8 @@
     - changeProductName : 술에 대한 이름을 바꿀 때 사용이 됩니다. 현재는 이름을 바꾸는 것으로 되어있으나, 추후 술에 대한 라벨이 바뀌는 경우 이를 관리할 수 있게 사진으로 바꿀 예정입니다.
 
 ### 3. FoodController
-    - 안주에 대한 정보를 관리합니다.
+        
+- 안주에 대한 정보를 관리합니다.
 
 <p align="start">
           <img width="900" alt="image" src="https://user-images.githubusercontent.com/20681491/207852474-36d79ef0-a3c1-4cc2-9aeb-6f26182e001b.png">
