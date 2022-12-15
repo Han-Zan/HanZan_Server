@@ -27,7 +27,7 @@
 해당 ReadMe는 모든 API 리스트들을 열거합니다.
 - AWS MariaDB를 이용하였으며 EC2 컴퓨팅을 이용하여 리눅스 서버에 배포를 완료하였습니다.
 
-1. UserController
+##1. UserController
     - 사용자에 관한 정보를 관리를 하는 API 입니다.
 
         <p align="start">
@@ -49,7 +49,7 @@
     - changeUserSBTI : 사용자의 술BTI를 바꿀 때 사용이 되는 API입니다.
     - (임시) insertfood : 사용자가 먹었던 음식에 대해서 저장합니다. (미사용)
 
-2. ProductController
+##2. ProductController
     - 주류 품목에 관한 정보를 관리합니다.
 
 <p align="start">
@@ -70,7 +70,7 @@
 - PUT Method
     - changeProductName : 술에 대한 이름을 바꿀 때 사용이 됩니다. 현재는 이름을 바꾸는 것으로 되어있으나, 추후 술에 대한 라벨이 바뀌는 경우 이를 관리할 수 있게 사진으로 바꿀 예정입니다.
 
-3. FoodController
+##3. FoodController
     - 안주에 대한 정보를 관리합니다.
 
 <p align="start">
