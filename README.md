@@ -36,83 +36,49 @@
 
 - GET Method
     - getUser : 사용자에 대한 전반적인 정보를 불러옵니다. 홈 화면, 사진 변경, 닉네임 변경 및 유저별 정보를 조회하기 위한 필수적인 데이터를 제공합니다.
-- 
-
+- POST Method
+    - postUserInfo : 사용자에 대한 정보를 기입합니다. 회원 가입 시 사용이 되며, 데이터베이스에 유저에 대한 정보를 기입합니다.
+- DELETE Mehhod
+    - deleteUser : 사용자의 회원 탈퇴 시 사용이 되는 API입니다.
+- PUT Method
+    - changeUserNickName : 사용자의 이름을 변경할 때 사용되는 API입니다.
+    - changeUserProfile : 사용자의 프로필 사진을 변경할 때 사용이 되는 API입니다.
+    - changeUserSBTI : 사용자의 술BTI를 바꿀 때 사용이 되는 API입니다.
+    - (임시) insertfood : 사용자가 먹었던 음식에 대해서 저장합니다. (미사용)
 
 2. 메뉴판을 촬영하여 궁합을 분석할 수 있어요!
     - 메뉴판에 있는 술과 안주를 카메라로 인식하세요
 
         구글 ML API로 글자를 인식한 후 자체적으로 개발한 자연어 처리 알고리즘으로 DB에 있는 술과 이름을 알아냅니다.
 
-        <p align="start">
-          <img width="300" alt="image" src="https://user-images.githubusercontent.com/70252417/207078697-b2f181ed-a44a-49e6-93f0-92fc24494547.png">
-          <img width="20">
-          <img width="300" alt="image" src="https://user-images.githubusercontent.com/70252417/207078801-69d4f3d0-0ebd-4c3c-8ef0-6cef4c5698bf.png">
-        </p>
 
 
     - 궁합 분석하기 버튼을 눌러 가장 어울리는 술과 안주의 궁합을 확인해보세요!
-        <p align="start">
-          <img width="300" alt="%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-12-08_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_5 43 26" src="https://user-images.githubusercontent.com/70252417/207201714-efa95569-400b-4703-be3f-83f7dc3af6d4.png">
-        </p>
+
 
 
 3. 자신이 먹은 궁합을 평가할 수 있어요!
     - 궁합을 선택하고 다음날 평가해주세요!
 
-         <p align="start">
-          <img width="300" alt="image" src ="https://user-images.githubusercontent.com/70252417/207201989-b94457ac-175b-4d5a-bb54-38495ae4aa44.png">
-         </p>
 
     - 해당 데이터는 궁합 분석에 스마트 추천으로 반영됩니다!
 
-        <p align="start">
-          <img width="300" alt="image" src ="https://user-images.githubusercontent.com/70252417/207202217-d53950d8-d596-4d3a-a3a1-c125412738c6.png">
-         </p>
 
 
 4. 술과 안주를 둘러보며 자유롭게 궁합을 분석할 수 있어요!
     - 술과 안주 리스트를 둘러볼 수 있어요!
-        <p align="start">
-          <img width="300" alt="image" src="https://user-images.githubusercontent.com/70252417/207202353-4826a348-b84e-4ad1-8ff9-e45adb51602b.png">
-          <img width="20">
-          <img width="300" alt="image" src="https://user-images.githubusercontent.com/70252417/207202367-eaa235ef-3d39-4e50-ac42-32bc0d4df31b.png">
-        </p>
 
-        <p align="start">
-          <img width="300" alt="image" src="https://user-images.githubusercontent.com/70252417/207203147-50252d65-63dd-40cf-8aa6-f3a050b7daba.png">
-          <img width="20">
-          <img width="300" alt="image" src="https://user-images.githubusercontent.com/70252417/207203153-42539cd4-9a6f-4155-8ba2-e45a38533166.png">
-        </p>
 
 
     - 술과 안주를 고르고 궁합도를 분석 해보세요!
-        <p align="start">
-          <img width="300" alt="image" src="https://user-images.githubusercontent.com/70252417/207211135-37ef5b41-3801-4086-96ab-a07885b320e0.png">
-          <img width="20">
-          <img width="300" alt="image" src="https://user-images.githubusercontent.com/70252417/207211143-ec43c98e-af46-4984-8ca1-eeb34ea0861d.png">
-        </p>
+
 
 5. 즐겨찾기를 하고 찜 해둘 수 있어요!
     - 내가 찜한 조합과 술을 확인하고 관리해보세요!
-        <p align="start">
-          <img width="300" alt="image" src="https://user-images.githubusercontent.com/70252417/207211261-3677fa33-6ea6-45ef-8d76-0d4fdb3fe708.png">
-          <img width="20">
-          <img width="300" alt="image" src="https://user-images.githubusercontent.com/70252417/207211274-0a3fad9a-991b-460c-bee2-e299cae5404c.png">
-        </p>
+
 
 6. 내 주변 검색으로 주위의 술집들을 둘러볼 수 있어요!
     - 내 주변 술집을 찾아보고 정보를 확인해 보세요!
-        <p align="start">
-          <img width="300" alt="image" src="https://user-images.githubusercontent.com/70252417/207211285-9d66887a-ca0a-4eb3-b2d9-f04a8810c511.png">
-          <img width="20">
-          <img width="300" alt="image" src="https://user-images.githubusercontent.com/70252417/207211298-14f005d7-1fd4-4ddd-8755-0c66d5b5cb59.png">
-        </p>
 
 7. 프로필을 꾸며보세요!
     - 원하는 닉네임과 프로필 사진으로 설정해 보세요!
-        <p align="start">
-          <img width="300" alt="image" src="https://user-images.githubusercontent.com/70252417/207211327-e03d9ee7-994a-4fee-a7da-a8781d1ca712.png">
-          <img width="20">
-          <img width="300" alt="image" src="https://user-images.githubusercontent.com/70252417/207211370-d3502224-e510-464a-975c-f7753c84f5df.png">
-        </p>
