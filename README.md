@@ -92,19 +92,38 @@
     - insertProduct : 특정 음식에 대해서 어울리는 주류 품목을 넣을 때 사용되었던 API입니다. 음식에 대한 궁합도를 측정할 때 밑바탕이 될 데이터를 구성할 때 사용되었습니다.
 
 
-4. 술과 안주를 둘러보며 자유롭게 궁합을 분석할 수 있어요!
-    - 술과 안주 리스트를 둘러볼 수 있어요!
+### 4. PreferredController
 
+- 주류 품목의 좋아요 정보를 관리합니다.
+          
+<p align="start">
+          <img width="900" alt="image" src="https://user-images.githubusercontent.com/20681491/207852460-0424f0ff-72d0-4f31-a984-2497136ee74b.png">
 
+- GET Method
+    - getProduct : 사용자가 좋아요를 누른 주류 품목에 대한 정보를 모두 가져오는 API입니다. 좋아요 화면에서 사용이 되었습니다.
+          
+- POST Method
+    - saveProduct : 사용자가 좋아요를 할 때 이에 대한 정보를 저장하는 API입니다. 좋아요의 버튼에서 사용이 되었습니다.
+          
+- DELETE Method
+    - deleteProductName : 사용자가 좋아요를 한 품목에 관하여 취소하는 API입니다. 이미 좋아요가 되어있는 경우 그 버튼을 눌렀을 시 불립니다.
 
-    - 술과 안주를 고르고 궁합도를 분석 해보세요!
+### 5. CombinationController
 
+- 조합에 관한 정보를 관리합니다.
+          
+<p align="start">
+          <img width="900" alt="image" src="https://user-images.githubusercontent.com/20681491/207852466-418e8eb4-fde4-4661-8845-a6558f369b15.png">
 
-5. 즐겨찾기를 하고 찜 해둘 수 있어요!
-    - 내가 찜한 조합과 술을 확인하고 관리해보세요!
+- GET Method
+    - getCombination : 하나의 조합에 관한 정보를 가져오는 API입니다. 궁합에 대한 점수 반환 및 궁합에 대한 데이터 관리에서 사용이 되었습니다.
+    - listall : 모든 궁합에 관한 정보를 불러오는 API입니다. 궁합을 모두 보여주는 화면에 관하여 사용이 되었습니다.
 
+- POST Method
+    - saveCombination : 조합에 대한 정보를 저장하는 API입니다. 궁합에 대한 주요 적인 데이터 관리에서 사용되었습니다.
+          
 
-6. 내 주변 검색으로 주위의 술집들을 둘러볼 수 있어요!
+### 6. Preferred Combination Controller
     - 내 주변 술집을 찾아보고 정보를 확인해 보세요!
 
 7. 프로필을 꾸며보세요!
