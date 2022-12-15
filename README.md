@@ -31,7 +31,7 @@
     - 사용자에 관한 정보를 관리를 하는 API 입니다.
 
         <p align="start">
-          <img width="600" alt="image" src="https://user-images.githubusercontent.com/20681491/207852470-9d178977-b1c4-4286-9c9d-88cc27892845.png">
+          <img width="900" alt="image" src="https://user-images.githubusercontent.com/20681491/207852470-9d178977-b1c4-4286-9c9d-88cc27892845.png">
         </p>
 
 
