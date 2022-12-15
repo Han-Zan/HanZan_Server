@@ -36,33 +36,56 @@
 
 - GET Method
     - getUser : 사용자에 대한 전반적인 정보를 불러옵니다. 홈 화면, 사진 변경, 닉네임 변경 및 유저별 정보를 조회하기 위한 필수적인 데이터를 제공합니다.
+
 - POST Method
     - postUserInfo : 사용자에 대한 정보를 기입합니다. 회원 가입 시 사용이 되며, 데이터베이스에 유저에 대한 정보를 기입합니다.
+
 - DELETE Mehhod
     - deleteUser : 사용자의 회원 탈퇴 시 사용이 되는 API입니다.
+
 - PUT Method
     - changeUserNickName : 사용자의 이름을 변경할 때 사용되는 API입니다.
     - changeUserProfile : 사용자의 프로필 사진을 변경할 때 사용이 되는 API입니다.
     - changeUserSBTI : 사용자의 술BTI를 바꿀 때 사용이 되는 API입니다.
     - (임시) insertfood : 사용자가 먹었던 음식에 대해서 저장합니다. (미사용)
 
-2. 메뉴판을 촬영하여 궁합을 분석할 수 있어요!
-    - 메뉴판에 있는 술과 안주를 카메라로 인식하세요
+2. ProductController
+    - 주류 품목에 관한 정보를 관리합니다.
 
-        구글 ML API로 글자를 인식한 후 자체적으로 개발한 자연어 처리 알고리즘으로 DB에 있는 술과 이름을 알아냅니다.
+<p align="start">
+          <img width="900" alt="image" src="https://user-images.githubusercontent.com/20681491/207852470-9d178977-b1c4-4286-9c9d-88cc27892845.png">
+        </p>
 
+- GET Method
+    - getProduct : 한 개의 특정 주류에 대한 정보를 가져오는 API입니다. 술의 상세 정보 화면에서 사용됩니다.
+    - getProductAll : 모든 주류에 대한 정보를 가져오는 API입니다. 술 선택 화면에서 모든 술을 가져올 때 사용됩니다.
+    - getProductSelection : 카테고리에 따른 주류를 가져오는 API입니다. (미사용)
 
+- POST Method
+    - postProduct : 주류에 대한 정보를 기입할 때 사용이 됩니다. 데이터를 주로 관리할 때 사용이 되었으며, 만약 추후 관리자가 술에 대한 정보를 넣어야 할 시 사용이 될 예정입니다.
 
-    - 궁합 분석하기 버튼을 눌러 가장 어울리는 술과 안주의 궁합을 확인해보세요!
+- DELETE Method
+    - deleteProductName : 주류에 대한 정보를 삭제할 때 사용됩니다. 데이터 관리 시 사용이 되었으며, 추후 관리자가 술에 대한 정보를 삭제해야 할 경우 사용이 될 예정입니다.
 
+- PUT Method
+    - changeProductName : 술에 대한 이름을 바꿀 때 사용이 됩니다. 현재는 이름을 바꾸는 것으로 되어있으나, 추후 술에 대한 라벨이 바뀌는 경우 이를 관리할 수 있게 사진으로 바꿀 예정입니다.
 
+3. FoodController
+    - 안주에 대한 정보를 관리합니다.
 
-3. 자신이 먹은 궁합을 평가할 수 있어요!
-    - 궁합을 선택하고 다음날 평가해주세요!
+<p align="start">
+          <img width="900" alt="image" src="https://user-images.githubusercontent.com/20681491/207852474-36d79ef0-a3c1-4cc2-9aeb-6f26182e001b.png">
 
-
-    - 해당 데이터는 궁합 분석에 스마트 추천으로 반영됩니다!
-
+- GET Method
+    - getFood : 한 음식에 대한 상세정보를 가져오는 API입니다. 단일 데이터에 대한 체크와 오류에 대한 확인 용도로 사용하는 API입니다.
+    - getAllFood : 모든 음식에 대한 정보를 가져오는 API입니다. 안주에 대한 선택을 하는 화면에서 사용이 됩니다.
+    - getFoodByName : 이름에 따라서 안주를 가져올 수 있는 API입니다.
+    
+- POST Method
+    - saveFood : 음식에 대한 데이터를 저장할 때 사용되었던 API입니다. 데이터에 대한 관리를 위해서 사용이 되었습니다.
+   
+- PUT Method
+    - insertProduct : 특정 음식에 대해서 어울리는 주류 품목을 넣을 때 사용되었던 API입니다. 음식에 대한 궁합도를 측정할 때 밑바탕이 될 데이터를 구성할 때 사용되었습니다.
 
 
 4. 술과 안주를 둘러보며 자유롭게 궁합을 분석할 수 있어요!
