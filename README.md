@@ -34,28 +34,12 @@
           <img width="900" alt="image" src="https://user-images.githubusercontent.com/20681491/207852470-9d178977-b1c4-4286-9c9d-88cc27892845.png">
         </p>
 
-
-    - 술BTI 검사를 통해 자신의 음주유형을 확인 해보세요!
-
-        <p align="start">
-          <img width="300" alt="image" src="https://user-images.githubusercontent.com/70252417/207078204-17b0aafa-2731-4d91-8456-e22ff6b8a056.png">
-          <img width="20">
-          <img width="300" alt="image" src="https://user-images.githubusercontent.com/70252417/207078340-ab0356f7-d7b6-49ef-ba89-e494e0cb8939.png">
-        </p>
-
+    - GET Method
+    - - getUser : 사용자에 대한 전반적인 정보를 불러옵니다. 홈 화면, 사진 변경, 닉네임 변경 및 유저별 정보를 조회하기 위한 필수적인 데이터를 제공합니다.
     - 결과를 확인하고 친구에게 공유를 해보세요!
-
-        <p align="start">
-          <img width="300" alt="image" src="https://user-images.githubusercontent.com/70252417/207078484-9587cecc-f37f-482f-81cb-8356a74c140f.png">
-          <img width="20">
-          <img width="300" alt="image" src="https://user-images.githubusercontent.com/70252417/207078536-389028fd-5725-468d-a4bc-0dac5db6b5a9.png">
-        </p>
 
     - 회원가입을 완료하고 당신의 한잔을 만나보세요!
 
-        <p align="start">
-          <img width="300" alt="image" src="https://user-images.githubusercontent.com/70252417/207078605-f3128bc7-b312-4fd6-905f-21a782d9fc7a.png">
-        </p>
 
 2. 메뉴판을 촬영하여 궁합을 분석할 수 있어요!
     - 메뉴판에 있는 술과 안주를 카메라로 인식하세요
