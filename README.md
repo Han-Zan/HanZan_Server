@@ -8,10 +8,9 @@
 
 **캡스톤 디자인 프로젝트에서 한 학기 동안 진행한 프로젝트**로 2022.9.1 부터 2022.12.9까지 진행하였습니다.
 
-- Android Studio Dolphin | 2021.3.1 Patch 1
-- minSdkVersion 26
-- targetSdkVersion 33
-- kotlin version 1.7.10
+- Spring Boot | 2.7.7
+- MariaDB | 10.6.10
+- Java Version 1.7.10
 
 ---
 
@@ -19,12 +18,8 @@
 
 | Component | Content |
 | --- | --- |
-| Jetpack | Coroutine, CameraX, ViewModel, Navigation, LiveData, Data Binding |
-| Architecture | MVVM, Clean Architecture |
-| Dependency | Hilt dependency Injection |
-| Design | Material Design 3 |
-| Library | Retrofit, Glide, Google ML Kit, Aws S3, Kakao Login, Kakao Map |
-
+| Architecture | Layered Architecture |
+| Dependency | Swagger, Lombok, Hibernate, Security, Jpa |
 ---
 
 ## 📃 Description
