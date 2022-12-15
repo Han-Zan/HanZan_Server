@@ -24,13 +24,14 @@
 
 ## 📃 Description
 
-1. 한잔 서비스에 회원가입 해보세요!
-    - 카카오 로그인을 이용하여 회원가입이 가능합니다.
+해당 ReadMe는 모든 API 리스트들을 열거합니다.
+- AWS MariaDB를 이용하였으며 EC2 컴퓨팅을 이용하여 리눅스 서버에 배포를 완료하였습니다.
+
+1. UserController
+    - 사용자에 관한 정보를 관리를 하는 API 입니다.
 
         <p align="start">
-          <img width="300" alt="image" src="https://user-images.githubusercontent.com/70252417/207075659-c04362a9-ba31-403b-8af9-990f0ed61cf9.png">
-          <img width="20">
-          <img width="300" alt="image" src="https://user-images.githubusercontent.com/70252417/207075716-53d6c5db-a6f4-4cba-b1c7-2f3d56bfcb4e.png">
+          <img width="300" alt="image" src="https://user-images.githubusercontent.com/20681491/207852470-9d178977-b1c4-4286-9c9d-88cc27892845.png">
         </p>
 
 
